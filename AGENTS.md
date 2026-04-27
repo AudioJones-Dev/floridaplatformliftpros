@@ -23,7 +23,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## JSON-LD Schema
 - All schema helpers live in `src/lib/seo/schema.ts` (LocalBusinessSchema, ServiceSchema, FAQPageSchema, ArticleSchema, BreadcrumbSchema, HowToSchema, OrganizationSchema).
 - Schema helpers read from `siteConfig` in `src/lib/seo/metadata.ts`.
-- Inject schemas via the `<JsonLdSchema>` component in `src/lib/page-engine/render-page.tsx`.
+- Inject schemas via inline `<script type="application/ld+json">` tags rendered by `RenderPage` (using `config.schemas` array).
 
 ## Page Engine
 - All money pages are driven by `PageEngineConfig` objects in `src/lib/page-engine/types.ts`.

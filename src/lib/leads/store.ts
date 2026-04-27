@@ -15,8 +15,9 @@ export interface LeadStore {
 class MockLeadStore implements LeadStore {
   async save(lead: Lead): Promise<{ success: boolean; id?: string }> {
     const id = `mock-${Date.now()}`;
-    // In development, log lead to console. This is NOT production-ready.
-    console.log("[MockLeadStore] Lead received (dev only):", { ...lead, id });
+    if (process.env.NODE_ENV === "development") {
+      console.log("[MockLeadStore] Lead received (dev only):", { ...lead, id });
+    }
     return { success: true, id };
   }
 }

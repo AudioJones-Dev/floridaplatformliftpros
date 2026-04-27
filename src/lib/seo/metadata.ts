@@ -5,7 +5,7 @@ export const siteConfig = {
   phoneRaw: "9546139330",
   email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@floridaplatformliftpros.com",
   address: {
-    streetAddress: "",
+    streetAddress: "", // intentionally omitted — service-area business with no fixed public storefront
     addressLocality: "Fort Lauderdale",
     addressRegion: "FL",
     postalCode: "33301",
