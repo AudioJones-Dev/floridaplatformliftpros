@@ -116,8 +116,9 @@ export type PageSection =
   | InternalLinksSection;
 
 export interface JsonLdSchema {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  "@context": string;
+  "@type": string;
+  [key: string]: unknown;
 }
 
 export interface PageEngineConfig {
