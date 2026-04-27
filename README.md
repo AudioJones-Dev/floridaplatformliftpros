@@ -60,7 +60,7 @@ The active storage back-end is controlled by `LEAD_STORAGE_PROVIDER` in your `.e
 Appends submissions to `/data/leads.json` at the project root (gitignored).  
 This uses the Node.js `fs` module and **will not work** on serverless/edge runtimes such as Vercel without a writable filesystem layer.
 
-**Do not deploy with `LEAD_STORAGE_PROVIDER=mock` in production.**
+**⚠️ Production deploy requires database-backed lead storage. Do not deploy with `LEAD_STORAGE_PROVIDER=mock`.**
 
 ---
 
