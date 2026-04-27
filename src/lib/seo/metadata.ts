@@ -6,8 +6,8 @@ const siteConfig = {
   url: "https://floridaplatformliftpros.com",
   description:
     "Florida Platform Lift Pros specializes in vertical platform lift installation, ADA ramps, and accessibility solutions across Miami-Dade, Broward, and Palm Beach counties. Licensed, insured, and fully permitted.",
-  phone: "(305) 555-0187",
-  email: "info@floridaplatformliftpros.com",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "954-613-9330",
+  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@floridaplatformliftpros.com",
   address: {
     street: "8250 NW 27th St",
     city: "Doral",

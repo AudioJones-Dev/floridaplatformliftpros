@@ -11,6 +11,7 @@ import { locations } from "@/data/locations";
 import { globalFaqs } from "@/data/faq";
 import { buildLocalBusinessSchema } from "@/lib/schema/local-business";
 import { buildFAQSchema } from "@/lib/schema/faq";
+import { siteConfig } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   title: "Florida Platform Lift Pros — Vertical Platform Lifts & ADA Ramps",
@@ -38,7 +39,7 @@ export default function HomePage() {
         badge="South Florida's #1 Accessibility Installer"
         headline="Vertical Platform Lifts & ADA Ramps for Florida Homes and Businesses"
         subheadline="Florida Platform Lift Pros installs ADA-compliant vertical platform lifts, custom ramps, and full accessibility solutions throughout Miami-Dade, Broward, and Palm Beach counties. Licensed, insured, and permitted."
-        phone="(305) 555-0187"
+        phone={siteConfig.phone}
       />
 
       <TrustIndicators />

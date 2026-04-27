@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { siteConfig } from "@/lib/seo/metadata";
 
 interface HeroSectionProps {
   headline: string;
@@ -15,7 +16,7 @@ export function HeroSection({
   subheadline,
   badge,
   primaryCta = { label: "Request a Free Quote", href: "/contact" },
-  secondaryCta = { label: "Book a Call", href: "tel:(305) 555-0187" },
+  secondaryCta = { label: "Book a Call", href: `tel:${siteConfig.phone}` },
   phone,
 }: HeroSectionProps) {
   return (

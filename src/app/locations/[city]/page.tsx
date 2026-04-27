@@ -9,6 +9,7 @@ import { services } from "@/data/services";
 import { buildLocalBusinessSchema } from "@/lib/schema/local-business";
 import { buildFAQSchema } from "@/lib/schema/faq";
 import { buildBreadcrumbSchema } from "@/lib/schema/breadcrumb";
+import { siteConfig } from "@/lib/seo/metadata";
 
 interface Props {
   params: Promise<{ city: string }>;
@@ -89,13 +90,13 @@ export default async function CityPage({ params }: Props) {
               Request a Free Quote in {location.city}
             </a>
             <a
-              href="tel:(305) 555-0187"
+              href={`tel:${siteConfig.phone}`}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-amber-500 text-amber-400 hover:bg-amber-500 hover:text-gray-950 font-semibold px-8 py-4 text-lg transition-all"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              (305) 555-0187
+              {siteConfig.phone}
             </a>
           </div>
         </div>
