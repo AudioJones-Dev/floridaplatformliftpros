@@ -1,6 +1,6 @@
 # Florida Platform Lift Pros
 
-Production-ready Next.js 16 marketing site for a Florida accessibility contractor.  
+Production-oriented scaffold — Next.js 16 marketing site for a Florida accessibility contractor.  
 Stack: **Next.js 16 · TypeScript · Tailwind v4 · ESLint**
 
 ---
