@@ -7,8 +7,8 @@ export default function InternalLinksBlock({ heading, links }: InternalLinksSect
       <div className="max-w-4xl mx-auto">
         <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">{heading}</h3>
         <ul className="flex flex-wrap gap-4">
-          {links.map((link, i) => (
-            <li key={i}>
+          {links.map((link) => (
+            <li key={link.href}>
               <Link href={link.href} className="text-blue-700 underline text-sm hover:text-blue-900">
                 {link.label}
               </Link>

@@ -48,7 +48,7 @@ export default function RenderPage({ config }: { config: PageEngineConfig }) {
     <>
       {config.schemas.map((schema, i) => (
         <script
-          key={i}
+          key={`${String(schema["@type"])}-${i}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />

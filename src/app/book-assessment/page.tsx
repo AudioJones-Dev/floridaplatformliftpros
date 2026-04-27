@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { siteConfig } from "@/lib/seo/metadata";
 
 export default function BookAssessmentPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,7 +25,7 @@ export default function BookAssessmentPage() {
       });
       if (res.ok) {
         setStatus("success");
-        window.location.href = "/thank-you";
+        router.push("/thank-you");
       } else {
         setStatus("error");
       }

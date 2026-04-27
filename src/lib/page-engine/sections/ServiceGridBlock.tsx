@@ -7,9 +7,9 @@ export default function ServiceGridBlock({ heading, services }: ServiceGridSecti
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">{heading}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
+          {services.map((service) => (
             <Link
-              key={i}
+              key={service.href}
               href={service.href}
               className="block border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-400 transition"
             >
