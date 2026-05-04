@@ -8,8 +8,10 @@ export default function SiteHeader() {
         <Link href="/" className="font-bold text-blue-900 text-xl leading-tight">
           Florida Platform<br className="hidden sm:block" /> Lift Pros
         </Link>
-        <nav className="hidden md:flex gap-6 text-sm font-medium">
-          <Link href="/services/vertical-platform-lifts" className="text-gray-700 hover:text-blue-900">VPL Installation</Link>
+        <nav className="hidden md:flex gap-5 text-sm font-medium">
+          <Link href="/services/vertical-platform-lifts" className="text-gray-700 hover:text-blue-900">VPL</Link>
+          <Link href="/services/stair-lifts" className="text-gray-700 hover:text-blue-900">Stair Lifts</Link>
+          <Link href="/services/vehicle-lifts" className="text-gray-700 hover:text-blue-900">Vehicle Lifts</Link>
           <Link href="/services/ada-ramps" className="text-gray-700 hover:text-blue-900">ADA Ramps</Link>
           <Link href="/services/mobile-home-accessibility" className="text-gray-700 hover:text-blue-900">Mobile Homes</Link>
           <Link href="/resources/vertical-platform-lift-cost-florida" className="text-gray-700 hover:text-blue-900">Cost Guide</Link>

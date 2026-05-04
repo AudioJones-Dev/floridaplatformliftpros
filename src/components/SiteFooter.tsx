@@ -15,6 +15,8 @@ export default function SiteFooter() {
           <h3 className="font-bold mb-3">Services</h3>
           <ul className="space-y-1 text-sm text-blue-200">
             <li><Link href="/services/vertical-platform-lifts" className="hover:text-white">Vertical Platform Lifts</Link></li>
+            <li><Link href="/services/stair-lifts" className="hover:text-white">Stair Lifts</Link></li>
+            <li><Link href="/services/vehicle-lifts" className="hover:text-white">Vehicle Lifts</Link></li>
             <li><Link href="/services/ada-ramps" className="hover:text-white">ADA Wheelchair Ramps</Link></li>
             <li><Link href="/services/mobile-home-accessibility" className="hover:text-white">Mobile Home Accessibility</Link></li>
             <li><Link href="/services/modular-trailer-ada-access" className="hover:text-white">Modular Building ADA Access</Link></li>

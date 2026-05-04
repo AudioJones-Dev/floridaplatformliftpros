@@ -59,6 +59,16 @@ const pageConfig: PageEngineConfig = {
           href: "/services/vertical-platform-lifts",
         },
         {
+          title: "Stair Lift Installation",
+          description: "Straight and curved indoor and outdoor stair lifts. Aging-in-place specialists, Harmar and Bruno certified.",
+          href: "/services/stair-lifts",
+        },
+        {
+          title: "Vehicle Lift Installation",
+          description: "Wheelchair and scooter lifts for vans, SUVs, and trucks. Free vehicle compatibility check.",
+          href: "/services/vehicle-lifts",
+        },
+        {
           title: "ADA Wheelchair Ramp Installation",
           description: "Custom-built wheelchair ramps that meet ADA slope and width requirements.",
           href: "/services/ada-ramps",
