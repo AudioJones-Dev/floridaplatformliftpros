@@ -1,0 +1,35 @@
+export const siteConfig = {
+  name: "Florida Platform Lift Pros",
+  domain: "https://floridaplatformliftpros.com",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "954-613-9330",
+  phoneRaw: "9546139330",
+  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@floridaplatformliftpros.com",
+  address: {
+    streetAddress: "", // intentionally omitted — service-area business with no fixed public storefront
+    addressLocality: "Fort Lauderdale",
+    addressRegion: "FL",
+    postalCode: "33301",
+    addressCountry: "US",
+  },
+  geo: { latitude: 26.1224, longitude: -80.1373 },
+  openingHours: "Mo-Fr 08:00-18:00",
+  priceRange: "$$",
+  serviceAreas: [
+    "Miami-Dade County",
+    "Broward County",
+    "Palm Beach County",
+    "Lee County",
+    "Collier County",
+    "Monroe County",
+    "Charlotte County",
+    "Hendry County",
+  ],
+  services: [
+    "Vertical Platform Lift Installation",
+    "ADA Wheelchair Ramp Installation",
+    "Wheelchair Lift Installation",
+    "Mobile Home Accessibility",
+    "Modular Building ADA Access",
+    "Accessibility Site Assessments",
+  ],
+};
