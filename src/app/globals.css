@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand — deep teal-blue. Conveys clinical trust + ADA professionalism. */
+  --color-brand-50:  #eef6fa;
+  --color-brand-100: #d7e9f2;
+  --color-brand-200: #b0d2e3;
+  --color-brand-300: #7fb1cb;
+  --color-brand-500: #0e5573;
+  --color-brand-600: #0b475f;
+  --color-brand-700: #093a52;
+  --color-brand-800: #062c3f;
+  --color-brand-900: #052539;
+
+  /* Accent — warm coral. Used for primary CTAs and highlights. */
+  --color-accent-50:  #fdf1ec;
+  --color-accent-100: #fbdcd0;
+  --color-accent-300: #f1a085;
+  --color-accent-500: #e76f51;
+  --color-accent-600: #c75b40;
+  --color-accent-700: #a14530;
+
+  /* Ink — warm-leaning grays for body copy. */
+  --color-ink-900: #1f1d1b;
+  --color-ink-700: #3a3631;
+  --color-ink-500: #6e6862;
+  --color-ink-300: #b8b1aa;
+  --color-ink-100: #ebe6df;
+  --color-ink-50:  #f7f4f0;
+
+  /* Surface — page + section backgrounds. */
+  --color-surface-0: #ffffff;
+  --color-surface-50: #faf8f4;
+  --color-surface-100: #f3eee7;
+
+  /* Fonts — bound to Geist variables provided by layout.tsx. */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Base typography reset — body color + smoothed rendering. */
+body {
+  background: var(--color-surface-0);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading hierarchy — slightly tighter tracking for marketing pages. */
+h1, h2, h3, h4 {
+  letter-spacing: -0.015em;
+  color: var(--color-brand-900);
+}
