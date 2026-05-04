@@ -219,3 +219,5 @@ These are sequenced suggestions, not a locked plan — direction is yours.
 - src/lib/seo/metadata.ts — siteConfig single source of truth
 - src/lib/seo/schema.ts — JSON-LD helpers
 - src/lib/leads/store.ts — lead-store abstraction
+
+_Last verified via Vercel App PR preview integration test on 2026-05-04._
