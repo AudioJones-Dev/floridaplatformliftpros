@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 className="font-bold text-lg mb-3">Florida Platform Lift Pros</h3>
-          <p className="text-blue-200 text-sm mb-3">ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across South and Southwest Florida.</p>
+          <p className="text-blue-200 text-sm mb-3">ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across {siteConfig.serviceAreaStatement}</p>
           <p className="text-sm"><a href={`tel:${siteConfig.phoneRaw}`} className="text-yellow-300 font-bold">{siteConfig.phone}</a></p>
           <p className="text-sm"><a href={`mailto:${siteConfig.email}`} className="text-yellow-300">{siteConfig.email}</a></p>
         </div>
@@ -23,11 +23,14 @@ export default function SiteFooter() {
         </div>
         <div>
           <h3 className="font-bold mb-3">Service Areas</h3>
-          <ul className="text-sm text-blue-200 space-y-1">
-            {siteConfig.serviceAreas.map((area) => (
-              <li key={area}>{area}</li>
+          <ul className="text-sm text-blue-200 space-y-1 mb-3">
+            {siteConfig.serviceCounties.map((county) => (
+              <li key={county}>{county}</li>
             ))}
           </ul>
+          <p className="text-xs text-blue-300">
+            Including {siteConfig.serviceCities.slice(0, 5).join(", ")}, and surrounding Southwest Florida communities.
+          </p>
         </div>
       </div>
       <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-blue-700 text-center text-xs text-blue-400">

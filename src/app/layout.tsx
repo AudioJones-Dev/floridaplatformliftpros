@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions in South and Southwest Florida.",
+  description: "ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
   metadataBase: new URL(siteConfig.domain),
 };
 
