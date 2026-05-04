@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Vertical Platform Lift Installation Florida | ADA VPL Experts",
   description:
-    "Professional vertical platform lift installation in South Florida. ADA-compliant, permitted, and installed by licensed specialists. Serving Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
+    "Professional vertical platform lift installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties — including Fort Myers, Naples, Cape Coral, Bonita Springs, and Estero. ADA-compliant, permitted, and installed by licensed specialists.",
 };
 
 const faqs = [
@@ -40,13 +40,13 @@ const faqs = [
 
 const pageConfig: PageEngineConfig = {
   title: "Vertical Platform Lift Installation Florida",
-  description: "ADA-compliant VPL installation across South and Southwest Florida.",
+  description: "ADA-compliant VPL installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
   canonicalPath: "/services/vertical-platform-lifts",
   schemas: [
     ServiceSchema({
       name: "Vertical Platform Lift Installation",
       description:
-        "ADA-compliant vertical platform lift installation for residential and commercial properties in South Florida.",
+        "ADA-compliant vertical platform lift installation for residential and commercial properties across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       url: "/services/vertical-platform-lifts",
     }),
     FAQPageSchema(faqs),
@@ -61,7 +61,7 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "Vertical Platform Lift Installation in Florida",
       subheadline:
-        "ADA-compliant VPL installation for homes, commercial buildings, stages, and porches across South and Southwest Florida. Licensed, insured, and permitted.",
+        "ADA-compliant VPL installation for homes, commercial buildings, stages, and porches across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties. Licensed, insured, and permitted.",
       ctaText: "Book Free Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: "View Cost Guide",
@@ -162,7 +162,7 @@ const pageConfig: PageEngineConfig = {
       type: "service-area",
       heading: "Vertical Platform Lift Installation Areas",
       areas: siteConfig.serviceAreas,
-      note: "We serve residential and commercial clients across South and Southwest Florida.",
+      note: `We serve residential and commercial clients across ${siteConfig.serviceAreaStatement}`,
     },
     {
       type: "faq",
@@ -191,7 +191,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Call or Text to Schedule Your VPL Assessment",
-      subtext: `Serving ${siteConfig.serviceAreas.join(", ")}`,
+      subtext: `Serving ${siteConfig.serviceAreaStatement}`,
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
     },

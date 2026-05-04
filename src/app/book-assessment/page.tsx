@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Book a Free Accessibility Assessment | ${siteConfig.name}`,
     description:
-      "Schedule your free, no-obligation on-site accessibility assessment across South Florida.",
+      "Schedule your free, no-obligation on-site accessibility assessment across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
     url: `${siteConfig.domain}/book-assessment`,
     siteName: siteConfig.name,
     type: "website",

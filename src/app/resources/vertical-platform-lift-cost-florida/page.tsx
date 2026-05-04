@@ -139,7 +139,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Ready for a Custom VPL Quote?",
-      subtext: "We provide free, no-obligation site assessments across South Florida.",
+      subtext: "We provide free, no-obligation site assessments across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
     },

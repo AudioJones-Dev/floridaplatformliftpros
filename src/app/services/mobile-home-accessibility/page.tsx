@@ -55,7 +55,7 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "Mobile Home Accessibility Solutions in Florida",
       subheadline:
-        "Wheelchair lifts, platform lifts, and ADA ramps designed specifically for manufactured and mobile home entries across South and Southwest Florida.",
+        "Wheelchair lifts, platform lifts, and ADA ramps designed specifically for manufactured and mobile home entries across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       ctaText: "Book Free Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
@@ -64,7 +64,7 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "trust-strip",
-      items: ["Mobile Home Specialists", "Lift & Ramp Options", "Permit Handled", "Custom Site Assessment", "South Florida Coverage"],
+      items: ["Mobile Home Specialists", "Lift & Ramp Options", "Permit Handled", "Custom Site Assessment", "South + Southwest FL Coverage"],
     },
     {
       type: "direct-answer",
@@ -127,7 +127,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Call or Text for a Free Mobile Home Assessment",
-      subtext: "We solve mobile home accessibility challenges across South Florida.",
+      subtext: `We solve mobile home accessibility challenges across ${siteConfig.serviceAreaStatement}`,
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
     },

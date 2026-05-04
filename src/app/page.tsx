@@ -11,12 +11,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Florida Platform Lift Pros | ADA Lift & Ramp Installation",
   description:
-    "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company. Serving Miami-Dade, Broward, Palm Beach, Lee, Collier, and more.",
+    "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company. Serving Miami-Dade, Broward, Palm Beach, Lee, and Collier counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, and Estero.",
 };
 
 const pageConfig: PageEngineConfig = {
   title: "Florida Platform Lift Pros",
-  description: "ADA vertical platform lift and ramp installation across South Florida.",
+  description: "ADA vertical platform lift and ramp installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
   canonicalPath: "/",
   schemas: [
     LocalBusinessSchema(),
@@ -31,7 +31,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "hero",
       headline: "Florida's Platform Lift & ADA Ramp Experts",
-      subheadline: `Professional ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across South and Southwest Florida. Serving ${siteConfig.serviceAreas.slice(0, 4).join(", ")}, and more.`,
+      subheadline: `Professional ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions. Serving ${siteConfig.serviceAreaStatement}`,
       ctaText: "Book Free Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: "View All Services",
@@ -129,7 +129,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Call or Text for a Free Assessment",
-      subtext: "We serve Miami-Dade, Broward, Palm Beach, Lee, Collier, and more.",
+      subtext: `We serve ${siteConfig.serviceAreaStatement}`,
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
     },

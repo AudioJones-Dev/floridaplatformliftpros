@@ -19,10 +19,16 @@ export function LocalBusinessSchema() {
     },
     openingHours: siteConfig.openingHours,
     priceRange: siteConfig.priceRange,
-    areaServed: siteConfig.serviceAreas.map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area,
-    })),
+    areaServed: [
+      ...siteConfig.serviceCounties.map((county) => ({
+        "@type": "AdministrativeArea",
+        name: county,
+      })),
+      ...siteConfig.serviceCities.map((city) => ({
+        "@type": "City",
+        name: city,
+      })),
+    ],
   };
 }
 
@@ -49,10 +55,16 @@ export function ServiceSchema({
       telephone: siteConfig.phone,
       url: siteConfig.domain,
     },
-    areaServed: siteConfig.serviceAreas.map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area,
-    })),
+    areaServed: [
+      ...siteConfig.serviceCounties.map((county) => ({
+        "@type": "AdministrativeArea",
+        name: county,
+      })),
+      ...siteConfig.serviceCities.map((city) => ({
+        "@type": "City",
+        name: city,
+      })),
+    ],
   };
 }
 

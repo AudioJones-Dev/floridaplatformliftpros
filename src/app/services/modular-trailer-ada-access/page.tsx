@@ -50,7 +50,7 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "ADA Access for Modular Buildings & Trailers in Florida",
       subheadline:
-        "Platform lifts and custom ramps for modular buildings, portable classrooms, office trailers, and temporary structures across South and Southwest Florida.",
+        "Platform lifts and custom ramps for modular buildings, portable classrooms, office trailers, and temporary structures across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
@@ -108,7 +108,7 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Contact Us for Modular ADA Compliance",
-      subtext: "We serve commercial, educational, and government clients across South Florida.",
+      subtext: `We serve commercial, educational, and government clients across ${siteConfig.serviceAreaStatement}`,
       ctaText: "Book Free Assessment",
       ctaHref: "/book-assessment",
     },

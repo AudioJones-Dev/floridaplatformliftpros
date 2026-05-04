@@ -1,3 +1,21 @@
+const serviceCounties = [
+  "Miami-Dade County",
+  "Broward County",
+  "Palm Beach County",
+  "Lee County",
+  "Collier County",
+];
+
+const serviceCities = [
+  "Fort Myers",
+  "Naples",
+  "Cape Coral",
+  "Bonita Springs",
+  "Estero",
+  "Lehigh Acres",
+  "North Fort Myers",
+];
+
 export const siteConfig = {
   name: "Florida Platform Lift Pros",
   domain: "https://floridaplatformliftpros.com",
@@ -14,20 +32,20 @@ export const siteConfig = {
   geo: { latitude: 26.1224, longitude: -80.1373 },
   openingHours: "Mo-Fr 08:00-18:00",
   priceRange: "$$",
-  serviceAreas: [
-    "Miami-Dade County",
-    "Broward County",
-    "Palm Beach County",
-    "Lee County",
-    "Collier County",
-    "Monroe County",
-    "Charlotte County",
-    "Hendry County",
-  ],
+  serviceCounties,
+  serviceCities,
+  // Combined county + city list for components that render flat lists
+  // (footer, ServiceAreaBlock grid). JSON-LD helpers split by type.
+  serviceAreas: [...serviceCounties, ...serviceCities],
+  // Verbatim service-area statement — use where a single-paragraph description
+  // is appropriate (footer, hero subhead, About-style trust block).
+  serviceAreaStatement:
+    "Miami-Dade, Broward, Palm Beach, Lee, and Collier counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, Estero, and surrounding Southwest Florida communities.",
   services: [
     "Vertical Platform Lift Installation",
+    "Stair Lift Installation",
+    "Vehicle Lift Installation",
     "ADA Wheelchair Ramp Installation",
-    "Wheelchair Lift Installation",
     "Mobile Home Accessibility",
     "Modular Building ADA Access",
     "Accessibility Site Assessments",

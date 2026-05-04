@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ADA Wheelchair Ramp Installation Florida | Licensed & Permitted",
   description:
-    "Custom ADA wheelchair ramp installation in South Florida. Aluminum, wood, and modular ramps designed to meet ADA slope, width, and landing requirements.",
+    "Custom ADA wheelchair ramp installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties. Aluminum, wood, and modular ramps designed to meet ADA slope, width, and landing requirements.",
 };
 
 const faqs = [
@@ -35,12 +35,12 @@ const faqs = [
 
 const pageConfig: PageEngineConfig = {
   title: "ADA Wheelchair Ramp Installation Florida",
-  description: "Custom ADA ramp installation across South and Southwest Florida.",
+  description: "Custom ADA ramp installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
   canonicalPath: "/services/ada-ramps",
   schemas: [
     ServiceSchema({
       name: "ADA Wheelchair Ramp Installation",
-      description: "Custom ADA-compliant wheelchair ramp installation for residential and commercial properties in South Florida.",
+      description: "Custom ADA-compliant wheelchair ramp installation for residential and commercial properties across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       url: "/services/ada-ramps",
     }),
     FAQPageSchema(faqs),
@@ -55,7 +55,7 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "ADA Wheelchair Ramp Installation in Florida",
       subheadline:
-        "Custom-built, ADA-compliant wheelchair ramps for homes, businesses, mobile homes, and commercial buildings across South and Southwest Florida.",
+        "Custom-built, ADA-compliant wheelchair ramps for homes, businesses, mobile homes, and commercial buildings across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
       ctaText: "Book Free Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
