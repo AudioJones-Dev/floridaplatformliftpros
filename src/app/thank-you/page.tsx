@@ -11,25 +11,52 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center px-6">
-      <div className="max-w-xl text-center py-16">
+      <div className="max-w-2xl w-full text-center py-16">
         <div className="text-5xl mb-4">✅</div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Thank You — We&apos;ll Be in Touch Soon!
         </h1>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-700 mb-8">
           Your free accessibility assessment request has been received. A member of our team will contact you within 1 business day.
         </p>
-        <p className="text-gray-600 mb-8">
+
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8 text-left">
+          <h2 className="text-lg font-bold text-gray-900 mb-4 text-center">What Happens Next</h2>
+          <ol className="space-y-3 text-gray-700 text-sm">
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-900 text-white font-bold flex items-center justify-center">1</span>
+              <span>
+                <strong>Review.</strong> We review your request and the property details you provided to match you with the right specialist.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-900 text-white font-bold flex items-center justify-center">2</span>
+              <span>
+                <strong>Contact.</strong> We&apos;ll call or text you within 1 business day to confirm details and answer any initial questions.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-900 text-white font-bold flex items-center justify-center">3</span>
+              <span>
+                <strong>Schedule.</strong> We schedule your free on-site assessment at a time that works for you. No obligation, no pressure.
+              </span>
+            </li>
+          </ol>
+        </div>
+
+        <p className="text-gray-700 mb-2">
           Need immediate assistance? Call or text us at{" "}
           <a href={`tel:${siteConfig.phoneRaw}`} className="text-blue-900 font-bold underline">
             {siteConfig.phone}
           </a>
-          {" "}or email{" "}
+        </p>
+        <p className="text-gray-700 mb-8">
+          Or email{" "}
           <a href={`mailto:${siteConfig.email}`} className="text-blue-900 underline">
             {siteConfig.email}
           </a>
-          .
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/" className="bg-blue-900 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-800 transition">
             Return Home
