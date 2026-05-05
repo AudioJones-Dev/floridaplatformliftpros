@@ -17,8 +17,11 @@ class MockLeadStorage implements LeadStorage {
 
   async create(input: LeadInput): Promise<LeadRecord> {
     const now = new Date().toISOString();
+    // Use a raw UUID (no "mock-" prefix) so PATCH /api/leads/:id round-trips
+    // against the mock store cleanly during local dev. The [MockLeadStorage]
+    // tag in the log line is the dev identifier.
     const record: LeadRecord = {
-      id: `mock-${crypto.randomUUID()}`,
+      id: crypto.randomUUID(),
       createdAt: now,
       updatedAt: now,
       status: "new",
