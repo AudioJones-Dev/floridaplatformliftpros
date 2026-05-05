@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { siteConfig } from "@/lib/seo/metadata";
 import BookAssessmentForm from "./BookAssessmentForm";
 
@@ -18,5 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default function BookAssessmentPage() {
-  return <BookAssessmentForm />;
+  return (
+    <Suspense fallback={null}>
+      <BookAssessmentForm />
+    </Suspense>
+  );
 }
