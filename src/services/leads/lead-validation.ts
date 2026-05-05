@@ -6,7 +6,8 @@ import { LEAD_PRIORITY_VALUES, LEAD_STATUS_VALUES } from "./types";
 // Internally we normalize to camelCase and feed LeadInput to storage.
 
 const optionalString = z
-  .union([z.string(), z.null(), z.undefined()])
+  .string()
+  .nullish()
   .transform((v) => (typeof v === "string" ? v.trim() || null : null));
 
 export const LeadCreateSchema = z
@@ -93,18 +94,16 @@ export const LeadCreateSchema = z
 export const LeadUpdateSchema = z
   .object({
     status: z
-      .union([z.enum(LEAD_STATUS_VALUES as readonly [LeadStatus, ...LeadStatus[]]), z.null(), z.undefined()])
+      .enum(LEAD_STATUS_VALUES as readonly [LeadStatus, ...LeadStatus[]])
+      .nullish()
       .transform((v) => v ?? undefined),
     priority: z
-      .union([
-        z.enum(LEAD_PRIORITY_VALUES as readonly [LeadPriority, ...LeadPriority[]]),
-        z.null(),
-        z.undefined(),
-      ])
+      .enum(LEAD_PRIORITY_VALUES as readonly [LeadPriority, ...LeadPriority[]])
+      .nullish()
       .transform((v) => v ?? undefined),
-    assignedTo: z.union([z.string(), z.null(), z.undefined()]).transform((v) => v ?? undefined),
-    assigned_to: z.union([z.string(), z.null(), z.undefined()]).transform((v) => v ?? undefined),
-    notes: z.union([z.string(), z.null(), z.undefined()]).transform((v) => v ?? undefined),
+    assignedTo: z.string().nullish().transform((v) => v ?? undefined),
+    assigned_to: z.string().nullish().transform((v) => v ?? undefined),
+    notes: z.string().nullish().transform((v) => v ?? undefined),
   })
   .passthrough()
   .transform((raw): LeadUpdate => ({
