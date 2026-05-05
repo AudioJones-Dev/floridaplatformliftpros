@@ -1,15 +1,17 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/seo/metadata";
 
 export default function BookAssessmentForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    service: "",
+    serviceNeeded: "",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -18,10 +20,17 @@ export default function BookAssessmentForm() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("/api/lead", {
+      const payload = {
+        ...formData,
+        leadSourcePage: pathname,
+        utmSource: searchParams.get("utm_source"),
+        utmMedium: searchParams.get("utm_medium"),
+        utmCampaign: searchParams.get("utm_campaign"),
+      };
+      const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         setStatus("success");
@@ -88,16 +97,18 @@ export default function BookAssessmentForm() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Service Needed *</label>
               <select
-                value={formData.service}
-                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                required
+                value={formData.serviceNeeded}
+                onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:border-blue-500"
               >
                 <option value="">Select a service...</option>
                 <option value="vertical-platform-lift">Vertical Platform Lift</option>
+                <option value="stair-lift">Stair Lift</option>
+                <option value="vehicle-lift">Vehicle Lift</option>
                 <option value="ada-ramp">ADA Wheelchair Ramp</option>
-                <option value="wheelchair-lift">Wheelchair Lift</option>
                 <option value="mobile-home">Mobile Home Accessibility</option>
                 <option value="modular-building">Modular Building ADA Access</option>
                 <option value="assessment-only">Accessibility Assessment Only</option>
