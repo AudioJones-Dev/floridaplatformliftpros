@@ -5,105 +5,114 @@ import { LEAD_PRIORITY_VALUES, LEAD_STATUS_VALUES } from "./types";
 // Accepts both camelCase and snake_case keys at the request boundary.
 // Internally we normalize to camelCase and feed LeadInput to storage.
 
-const optionalString = z
-  .string()
-  .nullish()
-  .transform((v) => (typeof v === "string" ? v.trim() || null : null));
+// Optional text helper:
+//   1. truly optional (key may be absent)
+//   2. null and undefined both pass through as undefined
+//   3. strings are trimmed; empty-after-trim becomes undefined (so HTML form
+//      empty inputs don't satisfy presence checks downstream)
+const optionalText = z.preprocess((value) => {
+  if (value === null || value === undefined) return undefined;
+  if (typeof value !== "string") return value;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+}, z.string().optional());
+
+const optionalEnum = <V extends readonly [string, ...string[]]>(values: V) =>
+  z.preprocess((value) => {
+    if (value === null || value === undefined) return undefined;
+    if (typeof value !== "string") return value;
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : undefined;
+  }, z.enum(values).optional());
 
 export const LeadCreateSchema = z
   .object({
     // identity (camel + snake)
-    name: optionalString,
-    firstName: optionalString,
-    first_name: optionalString,
-    lastName: optionalString,
-    last_name: optionalString,
-    email: optionalString,
-    phone: optionalString,
+    name: optionalText,
+    firstName: optionalText,
+    first_name: optionalText,
+    lastName: optionalText,
+    last_name: optionalText,
+    email: optionalText,
+    phone: optionalText,
 
     // intent
-    serviceNeeded: optionalString,
-    service_needed: optionalString,
-    propertyType: optionalString,
-    property_type: optionalString,
-    timeline: optionalString,
-    message: optionalString,
+    serviceNeeded: optionalText,
+    service_needed: optionalText,
+    propertyType: optionalText,
+    property_type: optionalText,
+    timeline: optionalText,
+    message: optionalText,
 
     // geography
-    county: optionalString,
-    city: optionalString,
+    county: optionalText,
+    city: optionalText,
 
     // attribution
-    leadSourcePage: optionalString,
-    lead_source_page: optionalString,
-    utmSource: optionalString,
-    utm_source: optionalString,
-    utmMedium: optionalString,
-    utm_medium: optionalString,
-    utmCampaign: optionalString,
-    utm_campaign: optionalString,
+    leadSourcePage: optionalText,
+    lead_source_page: optionalText,
+    utmSource: optionalText,
+    utm_source: optionalText,
+    utmMedium: optionalText,
+    utm_medium: optionalText,
+    utmCampaign: optionalText,
+    utm_campaign: optionalText,
   })
   .passthrough()
-  .transform((raw): LeadInput => {
-    const merged: LeadInput = {
-      name: raw.name ?? null,
-      firstName: raw.firstName ?? raw.first_name ?? null,
-      lastName: raw.lastName ?? raw.last_name ?? null,
-      email: normalizeEmail(raw.email),
-      phone: normalizePhone(raw.phone),
-      serviceNeeded: raw.serviceNeeded ?? raw.service_needed ?? null,
-      propertyType: raw.propertyType ?? raw.property_type ?? null,
-      timeline: raw.timeline ?? null,
-      message: raw.message ?? null,
-      county: raw.county ?? null,
-      city: raw.city ?? null,
-      leadSourcePage: raw.leadSourcePage ?? raw.lead_source_page ?? null,
-      utmSource: raw.utmSource ?? raw.utm_source ?? null,
-      utmMedium: raw.utmMedium ?? raw.utm_medium ?? null,
-      utmCampaign: raw.utmCampaign ?? raw.utm_campaign ?? null,
-    };
-    return merged;
-  })
-  .superRefine((data, ctx) => {
-    // Require name OR firstName
-    if (!data.name && !data.firstName) {
+  .superRefine((raw, ctx) => {
+    // After preprocess, all empty/whitespace strings are undefined,
+    // so identity / contact / service rules can be checked by presence.
+    const name = raw.name ?? raw.firstName ?? raw.first_name;
+    if (!name) {
       ctx.addIssue({
         code: "custom",
-        message: "Name (or firstName) is required.",
+        message: "Either name or firstName is required.",
         path: ["name"],
       });
     }
-    // Require email OR phone
-    if (!data.email && !data.phone) {
+    const email = raw.email;
+    const phone = raw.phone;
+    if (!email && !phone) {
       ctx.addIssue({
         code: "custom",
-        message: "At least one of email or phone is required.",
+        message: "Either email or phone is required.",
         path: ["email"],
       });
     }
-    // Require serviceNeeded
-    if (!data.serviceNeeded) {
+    const serviceNeeded = raw.serviceNeeded ?? raw.service_needed;
+    if (!serviceNeeded) {
       ctx.addIssue({
         code: "custom",
         message: "serviceNeeded is required.",
         path: ["serviceNeeded"],
       });
     }
-  });
+  })
+  .transform((raw): LeadInput => ({
+    name: raw.name ?? null,
+    firstName: raw.firstName ?? raw.first_name ?? null,
+    lastName: raw.lastName ?? raw.last_name ?? null,
+    email: normalizeEmail(raw.email),
+    phone: normalizePhone(raw.phone),
+    serviceNeeded: raw.serviceNeeded ?? raw.service_needed ?? null,
+    propertyType: raw.propertyType ?? raw.property_type ?? null,
+    timeline: raw.timeline ?? null,
+    message: raw.message ?? null,
+    county: raw.county ?? null,
+    city: raw.city ?? null,
+    leadSourcePage: raw.leadSourcePage ?? raw.lead_source_page ?? null,
+    utmSource: raw.utmSource ?? raw.utm_source ?? null,
+    utmMedium: raw.utmMedium ?? raw.utm_medium ?? null,
+    utmCampaign: raw.utmCampaign ?? raw.utm_campaign ?? null,
+  }));
 
 export const LeadUpdateSchema = z
   .object({
-    status: z
-      .enum(LEAD_STATUS_VALUES as readonly [LeadStatus, ...LeadStatus[]])
-      .nullish()
-      .transform((v) => v ?? undefined),
-    priority: z
-      .enum(LEAD_PRIORITY_VALUES as readonly [LeadPriority, ...LeadPriority[]])
-      .nullish()
-      .transform((v) => v ?? undefined),
-    assignedTo: z.string().nullish().transform((v) => v ?? undefined),
-    assigned_to: z.string().nullish().transform((v) => v ?? undefined),
-    notes: z.string().nullish().transform((v) => v ?? undefined),
+    status: optionalEnum(LEAD_STATUS_VALUES as readonly [LeadStatus, ...LeadStatus[]]),
+    priority: optionalEnum(LEAD_PRIORITY_VALUES as readonly [LeadPriority, ...LeadPriority[]]),
+    assignedTo: optionalText,
+    assigned_to: optionalText,
+    notes: optionalText,
   })
   .passthrough()
   .transform((raw): LeadUpdate => ({
