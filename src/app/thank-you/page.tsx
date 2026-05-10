@@ -1,18 +1,37 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Thank You | Florida Platform Lift Pros",
   description: "Thank you for requesting a free accessibility assessment. We'll be in touch soon.",
-  robots: { index: false },
-};
+  path: "/thank-you",
+  noIndex: true,
+});
 
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center px-6">
       <div className="max-w-2xl w-full text-center py-16">
-        <div className="text-5xl mb-4">✅</div>
+        <div className="mb-4 flex justify-center">
+          <span
+            aria-hidden
+            className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-9 w-9 text-green-700"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+        </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Thank You — We&apos;ll Be in Touch Soon!
         </h1>

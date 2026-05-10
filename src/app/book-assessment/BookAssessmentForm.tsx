@@ -13,6 +13,7 @@ export default function BookAssessmentForm() {
     email: "",
     serviceNeeded: "",
     message: "",
+    company: "", // honeypot — humans never fill this
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -121,8 +122,21 @@ export default function BookAssessmentForm() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={4}
+                maxLength={4000}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:border-blue-500"
                 placeholder="Tell us about your property and accessibility needs..."
+              />
+            </div>
+            <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+              <label htmlFor="company">Company (leave blank)</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
             </div>
             <button

@@ -6,13 +6,14 @@ import {
   BreadcrumbSchema,
 } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Florida Platform Lift Pros | ADA Lift & Ramp Installation",
   description:
     "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company. Serving Miami-Dade, Broward, Palm Beach, Lee, and Collier counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, and Estero.",
-};
+  path: "/",
+});
 
 const pageConfig: PageEngineConfig = {
   title: "Florida Platform Lift Pros",
