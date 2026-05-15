@@ -173,7 +173,6 @@ Run before marking the pipeline production-ready:
 
 ## Future work (not in this PR)
 
-- Remove the legacy `/api/lead` route + `src/lib/leads/store.ts` once we're confident no integrations point at it.
 - Add detail view for individual lead at `/admin/leads/:id` with inline status/priority editing.
 - Add CSV export from the admin page.
 - Add a webhook adapter as a third storage provider for shipping leads to Slack / a third-party CRM.
