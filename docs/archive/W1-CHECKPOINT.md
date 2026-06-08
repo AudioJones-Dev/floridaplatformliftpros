@@ -1,3 +1,5 @@
+> **Archived historical W1 checkpoint.** This file is not current source-of-truth. Current lead pipeline and deployment docs live in [`docs/lead-pipeline.md`](../lead-pipeline.md) and [`docs/deployment.md`](../deployment.md).
+
 # W1 Checkpoint — Florida Platform Lift Pros
 
 **Status:** W1 merged and validated on `main` (commit `b167819`).
