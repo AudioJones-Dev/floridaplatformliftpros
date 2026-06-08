@@ -2,13 +2,14 @@ import RenderPage from "@/lib/page-engine/render-page";
 import type { PageEngineConfig } from "@/lib/page-engine/types";
 import { ServiceSchema, FAQPageSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Stair Lift Installation Florida | Straight & Curved Stair Lifts",
   description:
     "Professional stair lift installation across South and Southwest Florida. Straight and curved indoor and outdoor stair lifts from Harmar and Bruno. Aging-in-place specialists.",
-};
+  path: "/services/stair-lifts",
+});
 
 const faqs = [
   {

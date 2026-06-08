@@ -2,13 +2,14 @@ import RenderPage from "@/lib/page-engine/render-page";
 import type { PageEngineConfig } from "@/lib/page-engine/types";
 import { ServiceSchema, FAQPageSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Vehicle Lift Installation Florida | Wheelchair & Scooter Lifts",
   description:
     "Wheelchair and mobility scooter vehicle lift installation across South and Southwest Florida. Hitch-mounted, interior, and platform lifts for vans, SUVs, and trucks. Free vehicle compatibility check.",
-};
+  path: "/services/vehicle-lifts",
+});
 
 const faqs = [
   {

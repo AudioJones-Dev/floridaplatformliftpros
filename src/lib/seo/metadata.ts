@@ -16,9 +16,13 @@ const serviceCities = [
   "North Fort Myers",
 ];
 
+// Strip a trailing slash so callers can do `${siteConfig.domain}${path}` safely.
+const rawDomain = process.env.NEXT_PUBLIC_SITE_URL ?? "https://floridaplatformliftpros.com";
+const domain = rawDomain.replace(/\/+$/, "");
+
 export const siteConfig = {
   name: "Florida Platform Lift Pros",
-  domain: "https://floridaplatformliftpros.com",
+  domain,
   phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "954-613-9330",
   phoneRaw: "9546139330",
   email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@floridaplatformliftpros.com",

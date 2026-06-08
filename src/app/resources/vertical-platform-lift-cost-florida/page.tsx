@@ -2,13 +2,15 @@ import RenderPage from "@/lib/page-engine/render-page";
 import type { PageEngineConfig } from "@/lib/page-engine/types";
 import { ArticleSchema, FAQPageSchema, BreadcrumbSchema, ServiceSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Vertical Platform Lift Cost in Florida 2025 | Price Guide",
   description:
     "How much does a vertical platform lift cost in Florida? In 2025, most residential VPLs cost $12,000–$30,000 installed. Full breakdown of costs, factors, and tips.",
-};
+  path: "/resources/vertical-platform-lift-cost-florida",
+  type: "article",
+});
 
 const faqs = [
   {

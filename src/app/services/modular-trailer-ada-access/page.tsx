@@ -2,13 +2,14 @@ import RenderPage from "@/lib/page-engine/render-page";
 import type { PageEngineConfig } from "@/lib/page-engine/types";
 import { ServiceSchema, FAQPageSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Modular Building ADA Access Florida | Platform Lifts & Ramps",
   description:
     "ADA-compliant platform lifts and ramps for modular buildings, trailers, and temporary structures in Florida. Licensed installation with permit handling.",
-};
+  path: "/services/modular-trailer-ada-access",
+});
 
 const faqs = [
   {

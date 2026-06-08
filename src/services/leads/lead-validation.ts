@@ -57,9 +57,20 @@ export const LeadCreateSchema = z
     utm_medium: optionalText,
     utmCampaign: optionalText,
     utm_campaign: optionalText,
+
+    // Honeypot — if filled, the request is from a bot. Validation rejects it.
+    company: optionalText,
   })
   .passthrough()
   .superRefine((raw, ctx) => {
+    // Honeypot trip — bot detected. Reject without revealing the rule.
+    if (raw.company) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Validation failed.",
+        path: ["company"],
+      });
+    }
     // After preprocess, all empty/whitespace strings are undefined,
     // so identity / contact / service rules can be checked by presence.
     const name = raw.name ?? raw.firstName ?? raw.first_name;
@@ -85,6 +96,43 @@ export const LeadCreateSchema = z
         code: "custom",
         message: "serviceNeeded is required.",
         path: ["serviceNeeded"],
+      });
+    }
+
+    // Field-level length caps — keeps a 10MB JSON body from filling the DB.
+    const lengthCaps: Array<[string, string | undefined, number]> = [
+      ["name", raw.name, 200],
+      ["firstName", raw.firstName ?? raw.first_name, 100],
+      ["lastName", raw.lastName ?? raw.last_name, 100],
+      ["email", raw.email, 320],
+      ["phone", raw.phone, 40],
+      ["serviceNeeded", serviceNeeded, 100],
+      ["propertyType", raw.propertyType ?? raw.property_type, 100],
+      ["timeline", raw.timeline, 100],
+      ["county", raw.county, 100],
+      ["city", raw.city, 100],
+      ["leadSourcePage", raw.leadSourcePage ?? raw.lead_source_page, 500],
+      ["utmSource", raw.utmSource ?? raw.utm_source, 100],
+      ["utmMedium", raw.utmMedium ?? raw.utm_medium, 100],
+      ["utmCampaign", raw.utmCampaign ?? raw.utm_campaign, 100],
+      ["message", raw.message, 4000],
+    ];
+    for (const [field, value, max] of lengthCaps) {
+      if (typeof value === "string" && value.length > max) {
+        ctx.addIssue({
+          code: "custom",
+          message: `${field} exceeds ${max} characters.`,
+          path: [field],
+        });
+      }
+    }
+
+    // Email shape check — only when an email was provided.
+    if (typeof raw.email === "string" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw.email)) {
+      ctx.addIssue({
+        code: "custom",
+        message: "email must be a valid address.",
+        path: ["email"],
       });
     }
   })

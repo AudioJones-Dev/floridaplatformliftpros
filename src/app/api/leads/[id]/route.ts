@@ -11,9 +11,8 @@ export async function PATCH(
 ) {
   const { id } = await params;
 
-  const auth = checkAdminAuth(
-    req.headers.get("x-admin-token") ?? req.nextUrl.searchParams.get("token")
-  );
+  // Header-only — query-string tokens leak to logs, browser history, and Referer.
+  const auth = checkAdminAuth(req.headers.get("x-admin-token"));
   if (!auth.ok) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }

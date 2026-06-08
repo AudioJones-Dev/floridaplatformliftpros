@@ -2,13 +2,14 @@ import RenderPage from "@/lib/page-engine/render-page";
 import type { PageEngineConfig } from "@/lib/page-engine/types";
 import { ServiceSchema, FAQPageSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/seo/metadata";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Vertical Platform Lift Installation Florida | ADA VPL Experts",
   description:
     "Professional vertical platform lift installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties — including Fort Myers, Naples, Cape Coral, Bonita Springs, and Estero. ADA-compliant, permitted, and installed by licensed specialists.",
-};
+  path: "/services/vertical-platform-lifts",
+});
 
 const faqs = [
   {
