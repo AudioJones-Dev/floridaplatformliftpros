@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Thank You | Florida Platform Lift Pros",
-  description: "Thank you for requesting a free accessibility assessment. We'll be in touch soon.",
+  description: "Thank you for requesting an accessibility assessment. We'll be in touch soon.",
   robots: { index: false },
 };
 
@@ -17,7 +17,7 @@ export default function ThankYouPage() {
           Thank You — We&apos;ll Be in Touch Soon!
         </h1>
         <p className="text-gray-700 mb-8">
-          Your free accessibility assessment request has been received. A member of our team will contact you within 1 business day.
+          Your accessibility assessment request has been received. A member of our team will contact you within 1 business day.
         </p>
 
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8 text-left">
@@ -38,7 +38,7 @@ export default function ThankYouPage() {
             <li className="flex gap-3">
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-900 text-white font-bold flex items-center justify-center">3</span>
               <span>
-                <strong>Schedule.</strong> We schedule your free on-site assessment at a time that works for you. No obligation, no pressure.
+                <strong>Schedule.</strong> We schedule your on-site assessment at a time that works for you. We confirm the next steps before work begins.
               </span>
             </li>
           </ol>

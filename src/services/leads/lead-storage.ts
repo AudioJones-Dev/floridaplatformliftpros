@@ -89,6 +89,16 @@ interface NeonRow {
   priority: LeadPriority;
   assigned_to: string | null;
   notes: string | null;
+  ai_call_summary: string | null;
+  qualification_fit: string | null;
+  partner_name: string | null;
+  partner_handoff_at: string | null;
+  partner_handoff_notes: string | null;
+  deal_specs: string | null;
+  estimated_deal_value: string | null;
+  commission_status: string | null;
+  commission_amount: string | null;
+  closed_at: string | null;
 }
 
 function rowToRecord(r: NeonRow): LeadRecord {
@@ -115,6 +125,16 @@ function rowToRecord(r: NeonRow): LeadRecord {
     priority: r.priority,
     assignedTo: r.assigned_to,
     notes: r.notes,
+    aiCallSummary: r.ai_call_summary,
+    qualificationFit: r.qualification_fit,
+    partnerName: r.partner_name,
+    partnerHandoffAt: r.partner_handoff_at,
+    partnerHandoffNotes: r.partner_handoff_notes,
+    dealSpecs: r.deal_specs,
+    estimatedDealValue: r.estimated_deal_value,
+    commissionStatus: r.commission_status,
+    commissionAmount: r.commission_amount,
+    closedAt: r.closed_at,
   };
 }
 
@@ -163,10 +183,20 @@ class NeonLeadStorage implements LeadStorage {
     // Atomic single-statement update — only fields explicitly provided are written.
     const rows = (await this.sql`
       UPDATE leads SET
-        status      = COALESCE(${patch.status ?? null}, status),
-        priority    = COALESCE(${patch.priority ?? null}, priority),
-        assigned_to = COALESCE(${patch.assignedTo ?? null}, assigned_to),
-        notes       = COALESCE(${patch.notes ?? null}, notes)
+        status                = COALESCE(${patch.status ?? null}, status),
+        priority              = COALESCE(${patch.priority ?? null}, priority),
+        assigned_to           = COALESCE(${patch.assignedTo ?? null}, assigned_to),
+        notes                 = COALESCE(${patch.notes ?? null}, notes),
+        ai_call_summary       = COALESCE(${patch.aiCallSummary ?? null}, ai_call_summary),
+        qualification_fit     = COALESCE(${patch.qualificationFit ?? null}, qualification_fit),
+        partner_name          = COALESCE(${patch.partnerName ?? null}, partner_name),
+        partner_handoff_at    = COALESCE(${patch.partnerHandoffAt ?? null}, partner_handoff_at),
+        partner_handoff_notes = COALESCE(${patch.partnerHandoffNotes ?? null}, partner_handoff_notes),
+        deal_specs            = COALESCE(${patch.dealSpecs ?? null}, deal_specs),
+        estimated_deal_value  = COALESCE(${patch.estimatedDealValue ?? null}, estimated_deal_value),
+        commission_status     = COALESCE(${patch.commissionStatus ?? null}, commission_status),
+        commission_amount     = COALESCE(${patch.commissionAmount ?? null}, commission_amount),
+        closed_at             = COALESCE(${patch.closedAt ?? null}, closed_at)
       WHERE id = ${id}
       RETURNING *
     `) as NeonRow[];

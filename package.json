@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "neon:mcp": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-neon-mcp.ps1",
+    "neon:migrate": "node --use-system-ca scripts/apply-neon-migrations.mjs",
+    "icons:recraft": "node scripts/recraft-icons.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

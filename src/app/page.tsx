@@ -11,12 +11,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Florida Platform Lift Pros | ADA Lift & Ramp Installation",
   description:
-    "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company. Serving Miami-Dade, Broward, Palm Beach, Lee, and Collier counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, and Estero.",
+    "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company. Serving South and Southwest Florida, including Miami-Dade, Broward, Palm Beach, Lee, Collier, Monroe, Charlotte, and Hendry counties.",
+  openGraph: {
+    title: "Florida Platform Lift Pros | ADA Lift & Ramp Installation",
+    description:
+      "Florida's trusted ADA vertical platform lift and wheelchair ramp installation company serving South and Southwest Florida.",
+    url: siteConfig.domain,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  alternates: { canonical: siteConfig.domain },
 };
 
 const pageConfig: PageEngineConfig = {
   title: "Florida Platform Lift Pros",
-  description: "ADA vertical platform lift and ramp installation across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
+  description: "ADA vertical platform lift and ramp installation across South and Southwest Florida.",
   canonicalPath: "/",
   schemas: [
     LocalBusinessSchema(),
@@ -32,7 +41,7 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "Florida's Platform Lift & ADA Ramp Experts",
       subheadline: `Professional ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions. Serving ${siteConfig.serviceAreaStatement}`,
-      ctaText: "Book Free Site Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: "View All Services",
       secondaryCtaHref: "/services/vertical-platform-lifts",
@@ -44,7 +53,7 @@ const pageConfig: PageEngineConfig = {
         "Licensed & Insured",
         "ADA Compliant Installs",
         "Permit Assistance",
-        "Free Site Assessments",
+        "Site Assessments",
         "8 Counties Served",
         "Residential & Commercial",
       ],
@@ -65,7 +74,7 @@ const pageConfig: PageEngineConfig = {
         },
         {
           title: "Vehicle Lift Installation",
-          description: "Wheelchair and scooter lifts for vans, SUVs, and trucks. Free vehicle compatibility check.",
+          description: "Wheelchair and scooter lifts for vans, SUVs, and trucks. Vehicle compatibility review available.",
           href: "/services/vehicle-lifts",
         },
         {
@@ -85,7 +94,7 @@ const pageConfig: PageEngineConfig = {
         },
         {
           title: "Accessibility Site Assessments",
-          description: "Free on-site evaluation to determine the best accessibility solution for your property.",
+          description: "Site evaluation to determine the best accessibility solution for your property.",
           href: "/book-assessment",
         },
         {
@@ -96,6 +105,20 @@ const pageConfig: PageEngineConfig = {
       ],
     },
     {
+      type: "partner",
+      eyebrow: "Trusted Installation Partner",
+      headline: "Assessment by Florida Platform Lift Pros. Installation by Florida Ramp & Lift.",
+      body:
+        "We qualify, assess, and scope accessibility projects, then connect approved projects with our trusted installation partner, Florida Ramp & Lift, one of Florida's experienced installers for ramps, lifts, and mobility access solutions.",
+      bullets: [
+        "Florida Platform Lift Pros handles intake, qualification, assessment, and project fit.",
+        "Florida Ramp & Lift handles professional installation for approved projects.",
+        "Clients get a clearer path from first question to finished access solution.",
+      ],
+      ctaText: "Start Your Accessibility Assessment",
+      ctaHref: "/book-assessment",
+    },
+    {
       type: "service-area",
       heading: "Areas We Serve",
       areas: siteConfig.serviceAreas,
@@ -104,8 +127,8 @@ const pageConfig: PageEngineConfig = {
     {
       type: "cta",
       heading: "Ready to Improve Accessibility?",
-      subtext: "Get a free site assessment and custom quote from Florida's platform lift specialists.",
-      ctaText: "Book Free Assessment",
+      subtext: "Request a site assessment and custom quote from Florida's platform lift specialists.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "Call/Text Us",
       secondaryHref: `tel:${siteConfig.phoneRaw}`,
@@ -127,7 +150,7 @@ const pageConfig: PageEngineConfig = {
         {
           question: "How long does an ADA ramp need to be?",
           answer:
-            "ADA guidelines require a minimum 1:12 slope ratio — meaning for every 1 inch of rise, the ramp must be at least 12 inches long. For example, a 24-inch step would require at least a 24-foot ramp. Our team calculates the exact specs during your free site assessment.",
+            "ADA guidelines require a minimum 1:12 slope ratio — meaning for every 1 inch of rise, the ramp must be at least 12 inches long. For example, a 24-inch step would require at least a 24-foot ramp. Our team calculates the exact specs during your site assessment.",
         },
         {
           question: "Can you install a lift or ramp on a mobile home?",
@@ -138,9 +161,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "bottom-cta",
-      heading: "Call or Text for a Free Assessment",
+      heading: "Call or Text for a Site Assessment",
       subtext: `We serve ${siteConfig.serviceAreaStatement}`,
-      ctaText: "Book Free Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

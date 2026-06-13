@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" fill="none">
+  <path d="M220 24h110M250 58h74M288 92h42" stroke="#E4A51C" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+  <path d="M52 196h210l-78-102m-88 72h126m-70-36h42" stroke="#1FAE9A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".24"/>
+  <path d="M0 40h360M0 80h360M0 120h360M0 160h360M0 200h360M40 0v240M80 0v240M120 0v240M160 0v240M200 0v240M240 0v240M280 0v240M320 0v240" stroke="#061F3D" stroke-width="1" opacity=".08"/>
+</svg>

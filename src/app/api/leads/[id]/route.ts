@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getLeadStorage } from "@/services/leads/lead-storage";
 import { checkAdminAuth } from "@/services/leads/admin-auth";
+import { sendPartnerHandoffEmail } from "@/services/leads/lead-email";
 import { LeadUpdateSchema, isValidUuid } from "@/services/leads/lead-validation";
 
 export const runtime = "nodejs";
@@ -47,6 +48,11 @@ export async function PATCH(
     const updated = await getLeadStorage().update(id, parsed.data);
     if (!updated) {
       return NextResponse.json({ error: "Lead not found." }, { status: 404 });
+    }
+    if (parsed.data.status === "handed_off") {
+      sendPartnerHandoffEmail(updated).catch((err) => {
+        console.error("[/api/leads/:id] partner handoff email error:", err);
+      });
     }
     return NextResponse.json({ success: true, lead: updated }, { status: 200 });
   } catch (err) {

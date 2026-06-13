@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Do I need a permit for an ADA ramp in Florida?",
     answer:
-      "Permit requirements for wheelchair ramps vary by Florida county and municipality. Permanent ramps often require a building permit. We advise on permit requirements during your free site assessment.",
+      "Permit requirements for wheelchair ramps vary by Florida county and municipality. Permanent ramps often require a building permit. We advise on permit requirements during your site assessment.",
   },
   {
     question: "Can I get an ADA ramp for a mobile home?",
@@ -56,7 +56,7 @@ const pageConfig: PageEngineConfig = {
       headline: "ADA Wheelchair Ramp Installation in Florida",
       subheadline:
         "Custom-built, ADA-compliant wheelchair ramps for homes, businesses, mobile homes, and commercial buildings across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
-      ctaText: "Book Free Site Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
       secondaryCtaHref: `tel:${siteConfig.phoneRaw}`,
@@ -64,7 +64,7 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "trust-strip",
-      items: ["ADA Slope Compliance", "Custom Designs", "Wood, Aluminum & Modular", "Permit Assistance", "Free Site Assessment"],
+      items: ["ADA Slope Compliance", "Custom Designs", "Wood, Aluminum & Modular", "Permit Assistance", "Site Assessment"],
     },
     {
       type: "direct-answer",
@@ -76,7 +76,7 @@ const pageConfig: PageEngineConfig = {
       type: "process",
       heading: "Our Ramp Installation Process",
       steps: [
-        { step: 1, title: "Free Site Assessment", description: "We measure the entry height and evaluate the site to design a ramp that meets ADA requirements and fits your space." },
+        { step: 1, title: "Site Assessment", description: "We measure the entry height and evaluate the site to design a ramp that meets ADA requirements and fits your space." },
         { step: 2, title: "Material & Design Selection", description: "Choose from aluminum, pressure-treated wood, or modular ramp systems based on your budget and needs." },
         { step: 3, title: "Permit Coordination", description: "We handle permit applications where required so your ramp is fully legal and code-compliant." },
         { step: 4, title: "Installation", description: "Our licensed crew installs your ramp to ADA specifications including handrails, edge protection, and non-slip surfaces." },
@@ -95,9 +95,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "cta",
-      heading: "Get a Free ADA Ramp Assessment",
-      subtext: "Custom ramp design and installation. No obligation site visit.",
-      ctaText: "Book Free Assessment",
+      heading: "Get an ADA Ramp Assessment",
+      subtext: "Custom ramp design and installation. Site visit available.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "View VPL Options",
       secondaryHref: "/services/vertical-platform-lifts",
@@ -108,14 +108,14 @@ const pageConfig: PageEngineConfig = {
       links: [
         { label: "Vertical Platform Lift Installation", href: "/services/vertical-platform-lifts" },
         { label: "Mobile Home Accessibility", href: "/services/mobile-home-accessibility" },
-        { label: "Book a Free Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
       ],
     },
     {
       type: "bottom-cta",
       heading: "Ready for a Custom ADA Ramp?",
-      subtext: "Call or text for a free site assessment.",
-      ctaText: "Book Free Assessment",
+      subtext: "Call or text for a site assessment.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

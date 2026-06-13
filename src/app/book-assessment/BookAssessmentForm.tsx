@@ -47,9 +47,9 @@ export default function BookAssessmentForm() {
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="bg-blue-900 text-white py-16 px-6 text-center">
-        <h1 className="text-4xl font-bold mb-3">Book Your Free Accessibility Assessment</h1>
+        <h1 className="text-4xl font-bold mb-3">Book Your Accessibility Assessment</h1>
         <p className="text-blue-100 text-lg max-w-xl mx-auto">
-          We&apos;ll visit your property, evaluate your accessibility needs, and recommend the best solution — no obligation.
+          We&apos;ll review your property, evaluate your accessibility needs, and recommend the best solution.
         </p>
         <p className="mt-4 text-blue-200 text-sm">
           Or call/text us directly:{" "}
@@ -62,7 +62,7 @@ export default function BookAssessmentForm() {
       {/* Form */}
       <section className="py-16 px-6">
         <div className="max-w-xl mx-auto bg-white rounded-xl shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Request Your Free Assessment</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Request Your Site Assessment</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
@@ -130,7 +130,7 @@ export default function BookAssessmentForm() {
               disabled={status === "loading"}
               className="w-full bg-blue-900 text-white font-bold py-4 rounded-lg text-lg hover:bg-blue-800 disabled:opacity-50 transition"
             >
-              {status === "loading" ? "Submitting..." : "Request Free Assessment"}
+              {status === "loading" ? "Submitting..." : "Request Site Assessment"}
             </button>
             {status === "error" && (
               <p className="text-red-600 text-sm text-center">

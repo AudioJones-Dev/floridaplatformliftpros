@@ -62,7 +62,7 @@ const pageConfig: PageEngineConfig = {
       headline: "Straight & Curved Stair Lift Installation in Florida",
       subheadline:
         "Indoor and outdoor stair lifts from Harmar and Bruno. Aging-in-place specialists serving South and Southwest Florida — fast straight-rail installs, custom curved fabrication.",
-      ctaText: "Book Free Site Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
       secondaryCtaHref: `tel:${siteConfig.phoneRaw}`,
@@ -75,14 +75,14 @@ const pageConfig: PageEngineConfig = {
         "Indoor & Outdoor",
         "Harmar & Bruno Certified",
         "Same-Week Install (Straight)",
-        "Free Site Assessment",
+        "Site Assessment",
       ],
     },
     {
       type: "direct-answer",
       question: "Should I get a straight stair lift, curved stair lift, or vertical platform lift?",
       answer:
-        "If your staircase has no turns or landings, a straight stair lift is the fastest and most affordable solution. If your staircase has any curve, landing, or 90° turn, you need a curved stair lift — they are custom-fabricated to your exact rail. If you use a wheelchair or cannot transfer to a stair lift seat, a vertical platform lift is the appropriate solution. Our free site assessment matches you to the right product based on your staircase, mobility needs, and budget.",
+        "If your staircase has no turns or landings, a straight stair lift is the fastest and most affordable solution. If your staircase has any curve, landing, or 90° turn, you need a curved stair lift — they are custom-fabricated to your exact rail. If you use a wheelchair or cannot transfer to a stair lift seat, a vertical platform lift is the appropriate solution. Our site assessment matches you to the right product based on your staircase, mobility needs, and budget.",
     },
     {
       type: "comparison",
@@ -104,7 +104,7 @@ const pageConfig: PageEngineConfig = {
       steps: [
         {
           step: 1,
-          title: "Free Site Assessment",
+          title: "Site Assessment",
           description:
             "We measure your staircase, evaluate turns and landings, and assess electrical access to recommend the right model.",
         },
@@ -147,9 +147,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "cta",
-      heading: "Get a Free Stair Lift Assessment",
-      subtext: "Same-week install on most straight stair lifts. Free measurement and quote — no obligation.",
-      ctaText: "Book Free Assessment",
+      heading: "Get a Stair Lift Assessment",
+      subtext: "Same-week install on most straight stair lifts. Measurement and quote available after review.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "Explore VPL Options",
       secondaryHref: "/services/vertical-platform-lifts",
@@ -163,14 +163,14 @@ const pageConfig: PageEngineConfig = {
         { label: "ADA Wheelchair Ramp Installation", href: "/services/ada-ramps" },
         { label: "Mobile Home Accessibility", href: "/services/mobile-home-accessibility" },
         { label: "VPL Cost Guide", href: "/resources/vertical-platform-lift-cost-florida" },
-        { label: "Book a Free Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
       ],
     },
     {
       type: "bottom-cta",
       heading: "Ready for a Stair Lift Installation Quote?",
-      subtext: "Call or text for a free site assessment — straight and curved Harmar and Bruno lifts available.",
-      ctaText: "Book Free Assessment",
+      subtext: "Call or text for a site assessment — straight and curved Harmar and Bruno lifts available.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

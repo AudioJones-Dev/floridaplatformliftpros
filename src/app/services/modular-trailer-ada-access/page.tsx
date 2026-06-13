@@ -51,7 +51,7 @@ const pageConfig: PageEngineConfig = {
       headline: "ADA Access for Modular Buildings & Trailers in Florida",
       subheadline:
         "Platform lifts and custom ramps for modular buildings, portable classrooms, office trailers, and temporary structures across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
-      ctaText: "Book Free Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
       secondaryCtaHref: `tel:${siteConfig.phoneRaw}`,
@@ -59,7 +59,7 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "trust-strip",
-      items: ["Modular Structure Specialists", "Lift & Ramp Solutions", "ADA Title II & III", "Permit Handled", "Free Assessment"],
+      items: ["Modular Structure Specialists", "Lift & Ramp Solutions", "ADA Title II & III", "Permit Handled", "Site Assessment"],
     },
     {
       type: "direct-answer",
@@ -71,7 +71,7 @@ const pageConfig: PageEngineConfig = {
       type: "process",
       heading: "Our Process for Modular ADA Access",
       steps: [
-        { step: 1, title: "Free Site Assessment", description: "We evaluate your modular building, measure the entry rise, and assess the site for lift or ramp installation." },
+        { step: 1, title: "Site Assessment", description: "We evaluate your modular building, measure the entry rise, and assess the site for lift or ramp installation." },
         { step: 2, title: "ADA Compliance Review", description: "We identify applicable ADA requirements for your structure type and occupancy." },
         { step: 3, title: "Solution Design & Quote", description: "We design the right lift or ramp system and provide a detailed quote." },
         { step: 4, title: "Permit & Installation", description: "We handle permits and complete the installation to code." },
@@ -89,9 +89,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "cta",
-      heading: "Get a Free Modular ADA Access Assessment",
-      subtext: "Bring your modular building into ADA compliance. Free site visit.",
-      ctaText: "Book Free Assessment",
+      heading: "Get a Modular ADA Access Assessment",
+      subtext: "Bring your modular building into ADA compliance. Site visit available.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "View VPL Options",
       secondaryHref: "/services/vertical-platform-lifts",
@@ -102,14 +102,14 @@ const pageConfig: PageEngineConfig = {
       links: [
         { label: "Vertical Platform Lift Installation", href: "/services/vertical-platform-lifts" },
         { label: "ADA Ramp Installation", href: "/services/ada-ramps" },
-        { label: "Book a Free Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
       ],
     },
     {
       type: "bottom-cta",
       heading: "Contact Us for Modular ADA Compliance",
       subtext: `We serve commercial, educational, and government clients across ${siteConfig.serviceAreaStatement}`,
-      ctaText: "Book Free Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

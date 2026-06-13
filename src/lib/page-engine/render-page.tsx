@@ -7,6 +7,7 @@ import ComparisonBlock from "./sections/ComparisonBlock";
 import CostBlock from "./sections/CostBlock";
 import ProcessBlock from "./sections/ProcessBlock";
 import ServiceAreaBlock from "./sections/ServiceAreaBlock";
+import PartnerBlock from "./sections/PartnerBlock";
 import FAQBlock from "./sections/FAQBlock";
 import CTABlock from "./sections/CTABlock";
 import BottomCTABlock from "./sections/BottomCTABlock";
@@ -30,6 +31,8 @@ function renderSection(section: PageSection, idx: number) {
       return <ProcessBlock key={idx} {...section} />;
     case "service-area":
       return <ServiceAreaBlock key={idx} {...section} />;
+    case "partner":
+      return <PartnerBlock key={idx} {...section} />;
     case "faq":
       return <FAQBlock key={idx} {...section} />;
     case "cta":

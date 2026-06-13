@@ -64,6 +64,17 @@ export interface ServiceAreaSection {
   heading: string;
   areas: string[];
   note?: string;
+  mapEmbedUrl?: string;
+}
+
+export interface PartnerSection {
+  type: "partner";
+  eyebrow: string;
+  headline: string;
+  body: string;
+  bullets: string[];
+  ctaText: string;
+  ctaHref: string;
 }
 
 export interface FAQItem {
@@ -110,6 +121,7 @@ export type PageSection =
   | CostSection
   | ProcessSection
   | ServiceAreaSection
+  | PartnerSection
   | FAQSection
   | CTASection
   | BottomCTASection

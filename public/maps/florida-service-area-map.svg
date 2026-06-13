@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Florida Platform Lift Pros highlighted service counties</title>
+  <desc id="desc">County chips for Miami-Dade, Broward, Palm Beach, Lee, Collier, Monroe, Charlotte, and Hendry.</desc>
+  <rect width="760" height="320" rx="20" fill="#FFFFFF"/>
+  <path d="M48 50h664M48 120h664M48 190h664M48 260h664M120 24v272M240 24v272M360 24v272M480 24v272M600 24v272" stroke="#D7E0EA" stroke-width="1"/>
+  <path d="M548 32c-38 62-45 116-19 160 16 27 45 48 57 80 6 17 7 35 5 52" stroke="#061F3D" stroke-width="10" stroke-linecap="round"/>
+  <path d="M526 198c-40 13-75 36-103 68 34-5 70 2 108 22-4-31-6-60-5-90Z" fill="#1FAE9A" stroke="#061F3D" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M438 266c30-28 61-47 92-59 0 22 2 43 6 64-38-18-70-23-98-5Z" fill="#E4A51C" stroke="#061F3D" stroke-width="5" stroke-linejoin="round"/>
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="700">
+    <g fill="#F5F8FB" stroke="#D7E0EA" stroke-width="2">
+      <rect x="50" y="46" width="190" height="46" rx="12"/>
+      <rect x="260" y="46" width="190" height="46" rx="12"/>
+      <rect x="50" y="112" width="190" height="46" rx="12"/>
+      <rect x="260" y="112" width="190" height="46" rx="12"/>
+      <rect x="50" y="178" width="190" height="46" rx="12"/>
+      <rect x="260" y="178" width="190" height="46" rx="12"/>
+      <rect x="50" y="244" width="190" height="46" rx="12"/>
+      <rect x="260" y="244" width="190" height="46" rx="12"/>
+    </g>
+    <g fill="#061F3D">
+      <text x="74" y="76">Miami-Dade</text>
+      <text x="284" y="76">Broward</text>
+      <text x="74" y="142">Palm Beach</text>
+      <text x="284" y="142">Lee</text>
+      <text x="74" y="208">Collier</text>
+      <text x="284" y="208">Monroe</text>
+      <text x="74" y="274">Charlotte</text>
+      <text x="284" y="274">Hendry</text>
+    </g>
+  </g>
+  <circle cx="626" cy="70" r="8" fill="#E4A51C"/>
+  <circle cx="640" cy="96" r="8" fill="#1FAE9A"/>
+  <circle cx="612" cy="122" r="8" fill="#E4A51C"/>
+  <path d="M610 232c22 8 41 22 56 43" stroke="#1FAE9A" stroke-width="7" stroke-linecap="round"/>
+</svg>

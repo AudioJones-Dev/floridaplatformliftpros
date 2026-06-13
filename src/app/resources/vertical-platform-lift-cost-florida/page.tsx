@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Are there grants or programs to help pay for a VPL in Florida?",
     answer:
-      "Potential funding sources include: Florida Medicaid HCBS waivers, Veterans Affairs (VA) SAH/SHA grants for qualifying veterans, USDA Rural Development home repair loans and grants, local Area Agency on Aging programs, and nonprofit accessibility assistance organizations. A free assessment with us can help you understand your options.",
+      "Potential funding sources include: Florida Medicaid HCBS waivers, Veterans Affairs (VA) SAH/SHA grants for qualifying veterans, USDA Rural Development home repair loans and grants, local Area Agency on Aging programs, and nonprofit accessibility assistance organizations. A site assessment can help you understand your options.",
   },
   {
     question: "Is a concrete pad required for a vertical platform lift?",
@@ -68,8 +68,8 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "How Much Does a Vertical Platform Lift Cost in Florida?",
       subheadline:
-        "In Florida, most residential vertical platform lifts cost between $12,000 and $30,000 installed. Get a free site assessment and custom quote from Florida Platform Lift Pros.",
-      ctaText: "Book Free Assessment",
+        "In Florida, most residential vertical platform lifts cost between $12,000 and $30,000 installed. Request a site assessment and custom quote from Florida Platform Lift Pros.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: "View VPL Service",
       secondaryCtaHref: "/services/vertical-platform-lifts",
@@ -77,7 +77,7 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "trust-strip",
-      items: ["Licensed Installers", "Transparent Pricing", "Free Site Assessment", "Permit Included", `Call ${siteConfig.phone}`],
+      items: ["Licensed Installers", "Transparent Pricing", "Site Assessment", "Permit Included", `Call ${siteConfig.phone}`],
     },
     {
       type: "direct-answer",
@@ -97,7 +97,7 @@ const pageConfig: PageEngineConfig = {
         { label: "Permit Fees", range: "$150–$800", note: "Varies by Florida county" },
         { label: "Site Preparation", range: "$200–$2,000", note: "Grading, demolition if needed" },
       ],
-      disclaimer: "All prices are estimates for Florida market. Actual cost depends on site conditions, lift model, local permit requirements, and access to site. Get a free site assessment for an accurate quote.",
+      disclaimer: "All prices are estimates for Florida market. Actual cost depends on site conditions, lift model, local permit requirements, and access to site. Get a site assessment for an accurate quote.",
     },
     {
       type: "comparison",
@@ -120,8 +120,8 @@ const pageConfig: PageEngineConfig = {
     {
       type: "cta",
       heading: "Get an Accurate VPL Quote for Your Florida Property",
-      subtext: "Free on-site assessment. We measure, recommend, and quote your project — no obligation.",
-      ctaText: "Book Free Assessment",
+      subtext: "On-site assessment. We measure, recommend, and quote your project.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "View VPL Service Page",
       secondaryHref: "/services/vertical-platform-lifts",
@@ -131,7 +131,7 @@ const pageConfig: PageEngineConfig = {
       heading: "Related Pages",
       links: [
         { label: "Vertical Platform Lift Installation", href: "/services/vertical-platform-lifts" },
-        { label: "Book a Free Site Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
         { label: "Mobile Home Accessibility", href: "/services/mobile-home-accessibility" },
         { label: "ADA Ramp Installation", href: "/services/ada-ramps" },
       ],
@@ -139,8 +139,8 @@ const pageConfig: PageEngineConfig = {
     {
       type: "bottom-cta",
       heading: "Ready for a Custom VPL Quote?",
-      subtext: "We provide free, no-obligation site assessments across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
-      ctaText: "Book Free Assessment",
+      subtext: "We provide site assessments across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

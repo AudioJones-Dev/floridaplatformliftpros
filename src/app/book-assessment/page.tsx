@@ -4,13 +4,13 @@ import { siteConfig } from "@/lib/seo/metadata";
 import BookAssessmentForm from "./BookAssessmentForm";
 
 export const metadata: Metadata = {
-  title: `Book a Free Accessibility Assessment | ${siteConfig.name}`,
+  title: `Book an Accessibility Assessment | ${siteConfig.name}`,
   description:
-    "Schedule your free, no-obligation on-site accessibility assessment. We evaluate your property and recommend the right platform lift, ADA ramp, or wheelchair lift solution for your needs.",
+    "Schedule an on-site accessibility assessment. We evaluate your property and recommend the right platform lift, ADA ramp, or wheelchair lift solution for your needs.",
   openGraph: {
-    title: `Book a Free Accessibility Assessment | ${siteConfig.name}`,
+    title: `Book an Accessibility Assessment | ${siteConfig.name}`,
     description:
-      "Schedule your free, no-obligation on-site accessibility assessment across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
+      "Schedule an on-site accessibility assessment across South and Southwest Florida.",
     url: `${siteConfig.domain}/book-assessment`,
     siteName: siteConfig.name,
     type: "website",

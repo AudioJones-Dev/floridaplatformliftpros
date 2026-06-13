@@ -44,6 +44,7 @@
 |---|---|---|---|
 | `/api/leads` | POST | none (public) | Capture a new lead |
 | `/api/leads/:id` | PATCH | `ADMIN_ACCESS_TOKEN` (header `x-admin-token` or `?token=`) | Update status / priority / assignedTo / notes |
+| `/api/ai-phone/lead-update` | POST | `AI_PHONE_SERVICE_WEBHOOK_SECRET` (`x-ai-phone-secret` or Bearer token) | Let the AI phone service update prequalification and handoff fields |
 | `/admin/leads` | GET | `ADMIN_ACCESS_TOKEN` (header or `?token=`) | View 200 most recent leads + counters |
 | `/thank-you` | GET | none | Post-submission confirmation + 3-step next process |
 
@@ -58,7 +59,9 @@ See `.env.example` for the canonical list. Required combinations by environment:
 | `RESEND_API_KEY` | (unset → emails skipped) | required (otherwise alerts silently disabled) |
 | `INTERNAL_ALERT_EMAIL` | (unset → alerts skipped) | `contact@floridaplatformliftpros.com` |
 | `DEFAULT_FROM_EMAIL` | optional | verified Resend sender |
+| `PARTNER_HANDOFF_EMAIL` | optional | partner inbox for qualified handoffs |
 | `ADMIN_ACCESS_TOKEN` | optional (warns if unset) | **required** (otherwise `/admin/leads` denies all access) |
+| `AI_PHONE_SERVICE_WEBHOOK_SECRET` | optional unless testing webhook | **required** for `/api/ai-phone/lead-update` |
 | `NEXT_PUBLIC_SITE_URL` | `https://floridaplatformliftpros.com` | `https://floridaplatformliftpros.com` |
 | `NEXT_PUBLIC_BUSINESS_PHONE` | `954-613-9330` | `954-613-9330` |
 | `NEXT_PUBLIC_BUSINESS_EMAIL` | `contact@floridaplatformliftpros.com` | `contact@floridaplatformliftpros.com` |
@@ -88,9 +91,10 @@ npm run dev
 
    ```sql
    -- contents of sql/006-leads.sql
+   -- then contents of sql/007-lead-attribution-pipeline.sql
    ```
 
-   The migration is idempotent: re-running is safe. Use `\i sql/006-leads.sql` from psql or paste contents into Neon's SQL Editor.
+   The migrations are idempotent: re-running is safe. Use `\i sql/006-leads.sql` and `\i sql/007-lead-attribution-pipeline.sql` from psql or paste contents into Neon's SQL Editor in order.
 
 2. Set production env vars on Vercel:
    - `LEAD_STORAGE_PROVIDER=neon`
@@ -99,6 +103,8 @@ npm run dev
    - `INTERNAL_ALERT_EMAIL=contact@floridaplatformliftpros.com`
    - `DEFAULT_FROM_EMAIL=<verified resend sender>`
    - `ADMIN_ACCESS_TOKEN=<generated with openssl rand -base64 32>`
+   - `PARTNER_HANDOFF_EMAIL=<Florida Ramp and Lift intake email>`
+   - `AI_PHONE_SERVICE_WEBHOOK_SECRET=<generated shared secret>`
 
 3. Deploy via the existing `.github/workflows/deploy.yml` (CI-gated).
 
@@ -111,6 +117,38 @@ npm run dev
 `src/services/leads/lead-email.ts` builds an alert email and POSTs to `https://api.resend.com/emails` via `fetch` (no SDK dep). The route handler awaits storage success first, then calls `sendLeadAlertEmail(lead).catch(...)` — the email never blocks the response and never surfaces errors to the user.
 
 The email body is HTML-escaped at every interpolation. Subject is `New Lead — <serviceNeeded>`. The from address defaults to `leads@floridaplatformliftpros.com` and can be overridden via `DEFAULT_FROM_EMAIL`.
+
+## Recommended commission tracking model
+
+Use a first-party tracking ledger as the source of truth through handoff, then reconcile closed deals with the fulfillment partner.
+
+1. Capture every form and phone lead in this app with UTM/source page data.
+2. Route the caller through the AI phone service and update the lead to `ai_prequalified` with `aiCallSummary` and `qualificationFit`.
+3. When fit is confirmed, set `status=handed_off`, `partnerName=Florida Ramp and Lift`, and record `partnerHandoffAt` plus handoff notes.
+4. After partner feedback, update quoted/closed outcome, deal specs, estimated deal value, commission status, and commission amount.
+5. When budget allows, add a dedicated tracked phone number per channel and an AI phone-service webhook so call recordings/transcripts update this same lead record automatically.
+
+This is stronger than a pure honor-system handoff because the lead origin, qualification notes, and handoff timestamp stay under our control before partner fulfillment begins.
+
+## AI phone-service webhook
+
+The AI phone service should call this endpoint after it finishes the prequalification call:
+
+```bash
+curl -X POST "https://floridaplatformliftpros.com/api/ai-phone/lead-update" \
+  -H "Content-Type: application/json" \
+  -H "x-ai-phone-secret: $AI_PHONE_SERVICE_WEBHOOK_SECRET" \
+  -d '{
+    "leadId": "<UUID>",
+    "aiCallSummary": "Caller needs a vertical platform lift for exterior entry access. Homeowner, ready within 30 days.",
+    "qualificationFit": "qualified residential VPL opportunity",
+    "priority": "high",
+    "handoffReady": true,
+    "partnerHandoffNotes": "Confirm site dimensions, slab condition, electrical access, and permitting timeline."
+  }'
+```
+
+When `handoffReady` is `true`, the app sets `status=handed_off`, records `partnerHandoffAt`, defaults `partnerName` to `Florida Ramp and Lift`, and sends the partner handoff email if `PARTNER_HANDOFF_EMAIL` and Resend are configured.
 
 ## Admin usage
 
@@ -135,13 +173,13 @@ curl -X PATCH "https://floridaplatformliftpros.com/api/leads/<UUID>" \
   -d '{"status":"contacted","priority":"high","notes":"Called 3pm, will follow up Tuesday"}'
 ```
 
-Allowed fields: `status` (new|contacted|qualified|quoted|won|lost|spam), `priority` (low|normal|high|urgent), `assignedTo` (or `assigned_to`), `notes`. Unspecified fields preserve their existing values via SQL `COALESCE`.
+Allowed fields: `status` (new|contacted|ai_prequalified|qualified|handed_off|quoted|won|lost|spam), `priority` (low|normal|high|urgent), `assignedTo` (or `assigned_to`), `notes`, `aiCallSummary`, `qualificationFit`, `partnerName`, `partnerHandoffAt`, `partnerHandoffNotes`, `dealSpecs`, `estimatedDealValue`, `commissionStatus`, `commissionAmount`, and `closedAt`. Unspecified fields preserve their existing values via SQL `COALESCE`.
 
 ## QA checklist
 
 Run before marking the pipeline production-ready:
 
-- [ ] `sql/006-leads.sql` applied to the Neon database; `SELECT count(*) FROM leads;` returns 0
+- [ ] `sql/006-leads.sql` and `sql/007-lead-attribution-pipeline.sql` applied to the Neon database; `SELECT count(*) FROM leads;` returns 0
 - [ ] `npm run lint` clean
 - [ ] `npx tsc --noEmit` clean
 - [ ] `npm run build` succeeds with all routes prerendered (admin page is dynamic by design)
@@ -154,12 +192,14 @@ Run before marking the pipeline production-ready:
 - [ ] If `RESEND_API_KEY` is unset, the lead still records (storage path doesn't depend on email)
 - [ ] `/admin/leads` without token in production returns the access-denied UI; with the right token shows leads
 - [ ] `PATCH /api/leads/:id` with a real id and right token updates status/priority/notes; same call without token returns 401; same call with a malformed UUID returns 400
+- [ ] `POST /api/ai-phone/lead-update` with the webhook secret updates AI summary and handoff fields; same call without the secret returns 401
 - [ ] `LEAD_STORAGE_PROVIDER=mock` + `NODE_ENV=production` deploy logs an error at the first lead submission (the throw is the safety net)
 - [ ] No secrets are committed (`.env.example` placeholders only; check `git diff` for any leaked values before PR review)
 
 ## Related files
 
-- `sql/006-leads.sql` — migration
+- `sql/006-leads.sql` - core lead migration
+- `sql/007-lead-attribution-pipeline.sql` - AI prequalification, handoff, and commission tracking fields
 - `src/services/leads/types.ts` — shared types
 - `src/services/leads/lead-storage.ts` — adapters + provider resolver
 - `src/services/leads/lead-validation.ts` — Zod schemas + normalizers
@@ -167,6 +207,7 @@ Run before marking the pipeline production-ready:
 - `src/services/leads/admin-auth.ts` — token guard
 - `src/app/api/leads/route.ts` — POST endpoint
 - `src/app/api/leads/[id]/route.ts` — PATCH endpoint
+- `src/app/api/ai-phone/lead-update/route.ts` - AI phone-service webhook endpoint
 - `src/app/admin/leads/page.tsx` — admin CRM UI
 - `src/app/book-assessment/BookAssessmentForm.tsx` — public form
 - `src/app/thank-you/page.tsx` — confirmation page

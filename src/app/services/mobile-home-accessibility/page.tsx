@@ -56,7 +56,7 @@ const pageConfig: PageEngineConfig = {
       headline: "Mobile Home Accessibility Solutions in Florida",
       subheadline:
         "Wheelchair lifts, platform lifts, and ADA ramps designed specifically for manufactured and mobile home entries across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
-      ctaText: "Book Free Site Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
       secondaryCtaHref: `tel:${siteConfig.phoneRaw}`,
@@ -89,7 +89,7 @@ const pageConfig: PageEngineConfig = {
       type: "process",
       heading: "How We Approach Mobile Home Accessibility",
       steps: [
-        { step: 1, title: "Free Site Assessment", description: "We visit your mobile home to measure entry height, evaluate the existing structure, and assess site conditions." },
+        { step: 1, title: "Site Assessment", description: "We visit your mobile home to measure entry height, evaluate the existing structure, and assess site conditions." },
         { step: 2, title: "Solution Recommendation", description: "Based on your entry height, budget, and space, we recommend the best lift or ramp solution." },
         { step: 3, title: "Permit & Approval", description: "We handle permit applications with your county." },
         { step: 4, title: "Installation", description: "Our licensed crew completes the installation safely and to code." },
@@ -108,9 +108,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "cta",
-      heading: "Get a Free Mobile Home Accessibility Assessment",
+      heading: "Get a Mobile Home Accessibility Assessment",
       subtext: "We assess your mobile home and recommend the right solution.",
-      ctaText: "Book Free Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
       secondaryText: "View VPL Options",
       secondaryHref: "/services/vertical-platform-lifts",
@@ -121,14 +121,14 @@ const pageConfig: PageEngineConfig = {
       links: [
         { label: "Vertical Platform Lift Installation", href: "/services/vertical-platform-lifts" },
         { label: "ADA Wheelchair Ramp Installation", href: "/services/ada-ramps" },
-        { label: "Book a Free Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
       ],
     },
     {
       type: "bottom-cta",
-      heading: "Call or Text for a Free Mobile Home Assessment",
+      heading: "Call or Text for a Mobile Home Assessment",
       subtext: `We solve mobile home accessibility challenges across ${siteConfig.serviceAreaStatement}`,
-      ctaText: "Book Free Assessment",
+      ctaText: "Book Site Assessment",
       ctaHref: "/book-assessment",
     },
   ],

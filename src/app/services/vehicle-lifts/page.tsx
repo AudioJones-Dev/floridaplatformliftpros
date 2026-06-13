@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Vehicle Lift Installation Florida | Wheelchair & Scooter Lifts",
   description:
-    "Wheelchair and mobility scooter vehicle lift installation across South and Southwest Florida. Hitch-mounted, interior, and platform lifts for vans, SUVs, and trucks. Free vehicle compatibility check.",
+    "Wheelchair and mobility scooter vehicle lift installation across South and Southwest Florida. Hitch-mounted, interior, and platform lifts for vans, SUVs, and trucks. Vehicle compatibility review available.",
 };
 
 const faqs = [
@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Which vehicles can have a vehicle lift installed?",
     answer:
-      "Most vehicle lifts are compatible with vans, SUVs, crossovers, and pickup trucks. Hitch-mounted exterior lifts require a properly rated tow receiver — typically Class II for power chairs and Class III for heavier scooters. Interior platform lifts require sufficient cargo height and a flat load floor. Sedans generally cannot accept a platform lift but may work with a swing-arm trunk lift. We provide a free vehicle compatibility check before quoting.",
+      "Most vehicle lifts are compatible with vans, SUVs, crossovers, and pickup trucks. Hitch-mounted exterior lifts require a properly rated tow receiver — typically Class II for power chairs and Class III for heavier scooters. Interior platform lifts require sufficient cargo height and a flat load floor. Sedans generally cannot accept a platform lift but may work with a swing-arm trunk lift. We provide a vehicle compatibility check before quoting.",
   },
   {
     question: "How much weight can a vehicle lift carry?",
@@ -61,8 +61,8 @@ const pageConfig: PageEngineConfig = {
       type: "hero",
       headline: "Wheelchair & Scooter Vehicle Lift Installation in Florida",
       subheadline:
-        "Hitch-mounted exterior, interior platform, and swing-arm lifts from Harmar and Bruno. Vans, SUVs, and trucks — fast install, free compatibility check.",
-      ctaText: "Book Free Compatibility Check",
+        "Hitch-mounted exterior, interior platform, and swing-arm lifts from Harmar and Bruno. Vans, SUVs, and trucks — fast install, compatibility check.",
+      ctaText: "Book Compatibility Check",
       ctaHref: "/book-assessment",
       secondaryCtaText: `Call ${siteConfig.phone}`,
       secondaryCtaHref: `tel:${siteConfig.phoneRaw}`,
@@ -75,14 +75,14 @@ const pageConfig: PageEngineConfig = {
         "Wheelchair & Scooter Lifts",
         "Harmar & Bruno",
         "Same-Day Install (Most Models)",
-        "Free Compatibility Check",
+        "Compatibility Check",
       ],
     },
     {
       type: "direct-answer",
       question: "Will a vehicle lift work for my mobility device and my car?",
       answer:
-        "It depends on three things: the weight and dimensions of the chair or scooter, the vehicle's tow receiver class or cargo space, and how often you plan to load and unload. Power wheelchairs and full-size scooters typically need a Class III hitch and a heavy-duty platform lift; travel scooters and folding chairs work with lighter Class II setups. Interior lifts need a van or SUV with enough cargo height. Our free compatibility check measures your chair, inspects your vehicle, and confirms which lift works before you commit to a purchase.",
+        "It depends on three things: the weight and dimensions of the chair or scooter, the vehicle's tow receiver class or cargo space, and how often you plan to load and unload. Power wheelchairs and full-size scooters typically need a Class III hitch and a heavy-duty platform lift; travel scooters and folding chairs work with lighter Class II setups. Interior lifts need a van or SUV with enough cargo height. Our compatibility check measures your chair, inspects your vehicle, and confirms which lift works before you commit to a purchase.",
     },
     {
       type: "comparison",
@@ -104,7 +104,7 @@ const pageConfig: PageEngineConfig = {
       steps: [
         {
           step: 1,
-          title: "Free Compatibility Check",
+          title: "Compatibility Check",
           description:
             "We measure your mobility device, inspect your vehicle's hitch class or cargo space, and confirm which lift configurations work safely.",
         },
@@ -147,9 +147,9 @@ const pageConfig: PageEngineConfig = {
     },
     {
       type: "cta",
-      heading: "Get a Free Vehicle Lift Compatibility Check",
+      heading: "Get a Vehicle Lift Compatibility Check",
       subtext: "Bring your chair, scooter, and vehicle — we'll match you to the right lift and quote it on the spot.",
-      ctaText: "Book Free Compatibility Check",
+      ctaText: "Book Compatibility Check",
       ctaHref: "/book-assessment",
       secondaryText: "Call/Text Us",
       secondaryHref: `tel:${siteConfig.phoneRaw}`,
@@ -162,14 +162,14 @@ const pageConfig: PageEngineConfig = {
         { label: "Vertical Platform Lift Installation", href: "/services/vertical-platform-lifts" },
         { label: "ADA Wheelchair Ramp Installation", href: "/services/ada-ramps" },
         { label: "Mobile Home Accessibility", href: "/services/mobile-home-accessibility" },
-        { label: "Book a Free Assessment", href: "/book-assessment" },
+        { label: "Book a Site Assessment", href: "/book-assessment" },
       ],
     },
     {
       type: "bottom-cta",
       heading: "Ready to Add a Vehicle Lift?",
-      subtext: "Free compatibility check covers your chair, your scooter, and your vehicle — no obligation.",
-      ctaText: "Book Free Compatibility Check",
+      subtext: "Compatibility review covers your chair, your scooter, and your vehicle.",
+      ctaText: "Book Compatibility Check",
       ctaHref: "/book-assessment",
     },
   ],

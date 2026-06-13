@@ -3,7 +3,9 @@
 export type LeadStatus =
   | "new"
   | "contacted"
+  | "ai_prequalified"
   | "qualified"
+  | "handed_off"
   | "quoted"
   | "won"
   | "lost"
@@ -14,7 +16,9 @@ export type LeadPriority = "low" | "normal" | "high" | "urgent";
 export const LEAD_STATUS_VALUES: readonly LeadStatus[] = [
   "new",
   "contacted",
+  "ai_prequalified",
   "qualified",
+  "handed_off",
   "quoted",
   "won",
   "lost",
@@ -54,6 +58,16 @@ export interface LeadRecord extends LeadInput {
   priority: LeadPriority;
   assignedTo?: string | null;
   notes?: string | null;
+  aiCallSummary?: string | null;
+  qualificationFit?: string | null;
+  partnerName?: string | null;
+  partnerHandoffAt?: string | null;
+  partnerHandoffNotes?: string | null;
+  dealSpecs?: string | null;
+  estimatedDealValue?: string | null;
+  commissionStatus?: string | null;
+  commissionAmount?: string | null;
+  closedAt?: string | null;
 }
 
 export interface LeadUpdate {
@@ -61,6 +75,16 @@ export interface LeadUpdate {
   priority?: LeadPriority;
   assignedTo?: string | null;
   notes?: string | null;
+  aiCallSummary?: string | null;
+  qualificationFit?: string | null;
+  partnerName?: string | null;
+  partnerHandoffAt?: string | null;
+  partnerHandoffNotes?: string | null;
+  dealSpecs?: string | null;
+  estimatedDealValue?: string | null;
+  commissionStatus?: string | null;
+  commissionAmount?: string | null;
+  closedAt?: string | null;
 }
 
 export interface LeadStorage {

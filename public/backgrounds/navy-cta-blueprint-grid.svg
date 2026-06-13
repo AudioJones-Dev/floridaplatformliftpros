@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="800" viewBox="0 0 2400 800" fill="none">
+  <rect width="2400" height="800" fill="#061F3D"/>
+  <path d="M0 80h2400M0 160h2400M0 240h2400M0 320h2400M0 400h2400M0 480h2400M0 560h2400M0 640h2400M0 720h2400M120 0v800M240 0v800M360 0v800M480 0v800M600 0v800M720 0v800M840 0v800M960 0v800M1080 0v800M1200 0v800M1320 0v800M1440 0v800M1560 0v800M1680 0v800M1800 0v800M1920 0v800M2040 0v800M2160 0v800M2280 0v800" stroke="#DCEAF4" stroke-width="1.5" opacity=".08"/>
+  <path d="M260 560h410l-170-250m-145 180h220m-150-80h95M1580 160v470m220-470v470m-220-390h220m-220 310h220" stroke="#DCEAF4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".16"/>
+  <path d="M130 110h460M130 150h250M1810 650h380" stroke="#E4A51C" stroke-width="8" stroke-linecap="round" opacity=".52"/>
+  <path d="M1320 500c110 0 110-170 220-170s110 170 220 170 110-170 220-170" stroke="#1FAE9A" stroke-width="8" stroke-linecap="round" opacity=".22"/>
+</svg>

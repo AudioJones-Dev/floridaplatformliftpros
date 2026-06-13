@@ -12,8 +12,17 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across Miami-Dade, Broward, Palm Beach, Lee, and Collier counties.",
+  description: "ADA-compliant vertical platform lifts, wheelchair ramps, and accessibility solutions across South and Southwest Florida.",
   metadataBase: new URL(siteConfig.domain),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -22,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased pb-20 md:pb-0`}>
         <SiteHeader />
         {children}

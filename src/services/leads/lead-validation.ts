@@ -113,6 +113,26 @@ export const LeadUpdateSchema = z
     assignedTo: optionalText,
     assigned_to: optionalText,
     notes: optionalText,
+    aiCallSummary: optionalText,
+    ai_call_summary: optionalText,
+    qualificationFit: optionalText,
+    qualification_fit: optionalText,
+    partnerName: optionalText,
+    partner_name: optionalText,
+    partnerHandoffAt: optionalText,
+    partner_handoff_at: optionalText,
+    partnerHandoffNotes: optionalText,
+    partner_handoff_notes: optionalText,
+    dealSpecs: optionalText,
+    deal_specs: optionalText,
+    estimatedDealValue: optionalText,
+    estimated_deal_value: optionalText,
+    commissionStatus: optionalText,
+    commission_status: optionalText,
+    commissionAmount: optionalText,
+    commission_amount: optionalText,
+    closedAt: optionalText,
+    closed_at: optionalText,
   })
   .passthrough()
   .transform((raw): LeadUpdate => ({
@@ -120,6 +140,16 @@ export const LeadUpdateSchema = z
     priority: raw.priority,
     assignedTo: raw.assignedTo ?? raw.assigned_to,
     notes: raw.notes,
+    aiCallSummary: raw.aiCallSummary ?? raw.ai_call_summary,
+    qualificationFit: raw.qualificationFit ?? raw.qualification_fit,
+    partnerName: raw.partnerName ?? raw.partner_name,
+    partnerHandoffAt: raw.partnerHandoffAt ?? raw.partner_handoff_at,
+    partnerHandoffNotes: raw.partnerHandoffNotes ?? raw.partner_handoff_notes,
+    dealSpecs: raw.dealSpecs ?? raw.deal_specs,
+    estimatedDealValue: raw.estimatedDealValue ?? raw.estimated_deal_value,
+    commissionStatus: raw.commissionStatus ?? raw.commission_status,
+    commissionAmount: raw.commissionAmount ?? raw.commission_amount,
+    closedAt: raw.closedAt ?? raw.closed_at,
   }));
 
 export function normalizeEmail(input: unknown): string | null {

@@ -4,6 +4,9 @@ const serviceCounties = [
   "Palm Beach County",
   "Lee County",
   "Collier County",
+  "Monroe County",
+  "Charlotte County",
+  "Hendry County",
 ];
 
 const serviceCities = [
@@ -40,7 +43,7 @@ export const siteConfig = {
   // Verbatim service-area statement — use where a single-paragraph description
   // is appropriate (footer, hero subhead, About-style trust block).
   serviceAreaStatement:
-    "Miami-Dade, Broward, Palm Beach, Lee, and Collier counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, Estero, and surrounding Southwest Florida communities.",
+    "Miami-Dade, Broward, Palm Beach, Lee, Collier, Monroe, Charlotte, and Hendry counties, including Fort Myers, Naples, Cape Coral, Bonita Springs, Estero, and surrounding South and Southwest Florida communities.",
   services: [
     "Vertical Platform Lift Installation",
     "Stair Lift Installation",
